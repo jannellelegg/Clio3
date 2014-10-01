@@ -1,0 +1,72 @@
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(historydata)
+library(ggplot2)
+
+data(sarna.csv)
+sarna 
+# this is the cleaned up sarna
+# working off the original raw sarna
+sarnaUntidy <- read.csv("historydata/data-raw/sarna.csv", stringsAsFactors = FALSE)
+sarnaUntidy
+
+sarnaUntidy <- sarnaUntidy %>%
+  tbl_df() %>%
+  select(year,
+         population_low = estimate_low,
+         population_high = estimate_high,
+         percentage_low = percentage_pop_low,
+         percentage_high = percentage_pop_high) %>%
+  gather(estimate, counts, -year)
+# THIS WORKED!
+
+```
+
+
+```{r}
+#trying something else now:
+#summarize national population for each year from the raw data. 
+#THIS WORKED!!
+
+states <- read.csv("historydata/data-raw/nhgis0011_ts_state.csv", stringsAsFactors = FALSE)
+states
+
+states <- states %>%
+  select(GISJOIN,
+         year = YEAR,
+         state = STATE,
+         statea = STATEA,
+         name = NAME,
+         statepop = A00AA) %>%
+  group_by(year) %>%
+  summarize(nationalpop = sum(statepop))
+states
+
+```
+
+```{r}
+#failures
+# attempts to rename, reorder content
+#states <- states %>%
+ # select(GISJOIN,
+  #       year = YEAR,
+   #      state = STATE,
+    #     statea = STATEA,
+     #    name = NAME,
+      #   statepop = A00AA) %>%
+#  gather(GISJOIN, year, state, statea, name, statepop)
+
+# group it together by year
+#states <- states %>%
+ # filter(YEAR == 1790)
+
+#THIS WORKED TO SELECT ONLY PARTS OF CHART, RENAME POP - could also have put
+# select(-GISJOIN, -statea, -name)
+#states <- states %>%
+ # select(YEAR, NAME, STATEPOP = A00AA)
+
+```
+
+

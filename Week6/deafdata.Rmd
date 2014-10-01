@@ -1,0 +1,120 @@
+---
+title: "dataclean"
+author: "Jannelle Legg"
+date: "September 27, 2014"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(historydata)
+library(ggplot2)
+
+#cleaning up some of my own data on 1900 census
+rawdata <- read.csv("historydata/1900Census.csv", stringsAsFactors = FALSE)
+rawdata
+  
+censusTidy <- rawdata %>%
+  tbl_df() %>%
+  select(year = Census.year,
+         respondants.total = Total.Population,
+         respondants.deaf = number.deaf,
+         - ratio.of.population) %>%
+  gather(respondant, results, -year)
+censusTidy
+```
+
+```{r}
+# let's play with the data a bit - what if I need a specific year? or sample size?
+oneYear <- censusTidy %>%
+  filter (year == 1900)
+oneYear
+
+sample10000 <- censusTidy %>%
+  filter (results >=10000)
+sample10000
+        
+# if I wanted to organize them by population size
+popSize <- censusTidy %>%
+  arrange(results)
+popSize
+
+```
+
+```{r}
+# if I want to get the number of the total pop in a given year, minus 
+# the deaf population ( the hearing population)- I can compare with rawdata 
+# and use mutate to compare the columns and create a new one
+
+censusCompare <- rawdata %>%
+  select(year = Census.year,
+         totalpop = Total.Population,
+         deafpop = number.deaf,
+         -ratio.of.population)
+censusCompare
+
+hearingPop <- censusCompare %>%
+  mutate(hearingpop = totalpop - deafpop)
+hearingPop
+  
+```
+
+```{r}
+# or I can use censusTidy and use spread() to extract the different pops
+# from the respondants column and compare it using mutate
+
+hearingPop2 <- censusTidy %>%
+  spread(respondant, results) %>%
+  select(year,
+         totalpop = respondants.total,
+         deafpop = respondants.deaf) %>%
+  mutate(hearingpop2 = totalpop - deafpop)
+hearingPop2
+
+```
+
+```{r}
+# or if I want to add up the total number of deaf respondants
+# though this wouldn't be any indication of population size as a number of
+# respondants would be potentially be counted a few times- but let's see what
+# happens anyway
+
+addDeaf <-hearingPop2 %>%
+  summarize(totaldeaf = sum(deafpop))
+addDeaf
+
+```
+
+```{r}
+# Ignore the failures below!
+#Got it to work, but now ratio is in the same column as respondants and
+# causing problems. Moving it around.
+
+#censusTidy <- censusTidy %>%
+ # tbl_df() %>%
+  #select(Census.year,
+   #      respondants.total = Total.Population,
+    #     respondants.deaf = number.deaf,
+     #    ratio = ratio.of.population) %>%
+#  gather(respondant, results, ratio, -Census.year)
+#censusTidy
+
+#Nope, now respondants are split in columns
+# I'd rather just remove the ratio column altogether
+# Just removing the ratio options doesn't work
+
+#censusTidy <- censusTidy %>%
+ # tbl_df() %>%
+  #select(Census.year,
+   #      respondants.total = Total.Population,
+    #     respondants.deaf = number.deaf,
+     #   - ratio.of.population) %>%
+ # gather(respondant, results, -Census.year)
+#censusTidy
+```
+

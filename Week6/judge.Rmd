@@ -1,0 +1,99 @@
+---
+title: "judge"
+author: "Jannelle Legg"
+date: "September 30, 2014"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+These are the judge database attempts: 
+
+The first step to cleaning up the data and trying to look at it
+```{r}
+dirtyJudge <- read.csv("historydata/jb.csv", stringsAsFactors = FALSE)
+dirtyJudge
+
+#whew, file is too big to preview. Let's filter out some data we're interested in.
+
+managableJudge <- dirtyJudge %>%
+  select(lastname = Judge.Last.Name,
+         firstname = Judge.First.Name,
+         middlename = Judge.Middle.Name,
+         birth = Birth.year,
+         death = Death.year,
+         gender = Gender,
+         raceth = Race.or.Ethnicity,
+         court = Court.Name)
+managableJudge
+         
+#okay, more managable, but still ugly. 
+
+```
+
+```{r}
+# Let's look at the judges in chronological order by birth year
+chronologyJudge <- managableJudge %>%
+  arrange(birth)
+chronologyJudge
+
+median(chronologyJudge$birth, na.rm = TRUE)
+# median year of birth for judges = 1923
+# lets look at median age
+
+ageJudge <- managableJudge %>%
+  mutate(ageJudge = death - birth)
+
+median(ageJudge$ageJudge, na.rm = TRUE)
+mean(ageJudge$ageJudge, na.rm = TRUE)
+
+# median age for the judges is 76, mean age is 75.23 (this is more like lifespan than age... )
+# that was fun. I guess.
+
+```
+
+  
+```{r}
+#Let's look at how many female judges there are!
+# First, we'll make sure there are no empty gender fields - organize by gender so I can look through.
+genderJudge <- managableJudge %>%
+  arrange(gender)
+genderJudge
+
+# great. All M or F, add a filter and see ONLY female Judges
+
+femaleJudge <- managableJudge %>%
+  filter(gender == "F")
+femaleJudge
+
+# great - but that I still have to look to see how many there are or how many male judges there are: give me a number and do the work for me!
+
+gendersJudge <- managableJudge %>%
+  group_by(gender) %>%
+  summarize(amountGender = n())
+gendersJudge
+
+```
+
+
+```{r}
+#what can I learn about the distribution of race/ethnicity?
+
+reJudge <- managableJudge %>%
+  group_by(raceth) %>%
+  summarize(distribRE = n()) %>%
+  arrange(desc(distribRE))
+reJudge
+
+#fascinating.
+```
+
+```{r}
+#next I'd like to play with race and gender - this will require me to mutate/spread the column to set a new variable. Ran out of time.
+```
+
+
+
+
