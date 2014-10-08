@@ -1,0 +1,221 @@
+---
+title: "week7"
+author: "Jannelle Legg"
+date: "October 7, 2014"
+output: html_document
+---
+
+Working through the Robin Lovelace and James Cheshire tutorial:
+
+```{r}
+# load the separate libraries
+library(ggplot2)
+library(sp)
+library(rgdal)
+library(maptools)
+library(rgeos)
+library(ggmap)
+library(plyr)
+
+setwd("~/Clio3/week7/spatialggplot/")
+
+#extracting data with rgdal
+
+sport <- readOGR(dsn = ".", "london_sport")
+names(sport)
+#gives you the headings 
+sport@data
+#where the spatial data is stored
+summary(sport)
+#gives additional info about data object
+#summary included "proj4string" with data - this is coordinate reference system - 
+#to change the specification use:
+proj4string(sport) <- CRS("+init=epsg:27700")
+sport.wgs84 <- spTransform(sport, CRS("+init=epsg:4326"))
+
+#creating plots with ggplot2
+
+p <- ggplot(sport@data, aes(Partic_Per, Pop_2001))
+p + geom_point()
+p + geom_point(color = "red", size=2)
+p + geom_point(color = "green", size=6)
+#can scale points by borough population and then color by sports participation
+p + geom_point(aes(color = Partic_Per, size = Pop_2001))
+#adding text layers
+p + geom_point(aes(color = Partic_Per, size = Pop_2001)) + 
+  geom_text(size = 2, aes(label = name))
+
+#pulling spatial info out of the shapefile using fortify function
+
+sport.f <- fortify(sport, region = "ons_label")
+
+#merge attribute information back into the object
+sport.f <- merge(sport.f, sport@data, by.x = "id", by.y = "ons_label")
+
+sport.f
+#look at a small piece of the data
+head(sport.f[1:8])
+
+Map <- ggplot(sport.f, aes(long, lat, group = group, fill = Partic_Per)) +
+  geom_polygon() + 
+  coord_equal() + 
+  labs(x = "Easting (m)", y = "Northing (m)", fill = "% Sport Partic.") + 
+  ggtitle("London Sports Participation")
+Map
+
+#ain't that fancy?
+
+Map + scale_fill_gradient(low = "white", high = "black")
+
+# save plots !!
+
+ggsave("my_large_plot.png", scale = 3, dpi = 400)
+
+#adding base maps to ggplot2 with ggmap
+
+b <- bbox(sport.wgs84)
+b[1, ] <- (b[1, ] - mean(b[1, ])) * 1.05 + mean(b[1, ])
+b[2, ] <- (b[2, ] - mean(b[2, ])) * 1.05 + mean(b[2, ])
+
+# I don't understand this part. but it's meant to scale the lat and long
+# ahh.. it creates a basemap from google to be overlaid with generated data
+
+lnd.b1 <- ggmap(get_map(location = b))
+
+sport.wgs84.f <- fortify(sport.wgs84, region = "ons_label")
+sport.wgs84.f <- merge(sport.wgs84.f, sport.wgs84@data, by.x = "id", by.y = "ons_label")
+
+#layer on the data again as before
+
+lnd.b1 + geom_polygon(data = sport.wgs84.f, aes(x = long, y = lat, group = group, fill = Partic_Per), alpha = 0.5)
+
+# changing the appearance again
+
+lnd.b2 <- ggmap(get_map(location = b, source = "stamen", maptype = "toner", crop = T))
+
+# this actually produces the plot
+
+lnd.b2 + geom_polygon(data = sport.wgs84.f, aes(x = long, y = lat, group = group, fill = Partic_Per), alpha = 0.5)
+
+# if want to increase detail on base map - use zoom parameter
+
+lnd.b3 <- ggmap(get_map(location = b, source = "stamen", maptype = "toner", crop = T, zoom = 11))
+lnd.b3 + geom_polygon(data = sport.wgs84.f, aes(x = long, y = lat, group = group, fill = Partic_Per), alpha = 0.5)
+
+# joining and clipping
+
+#loading only the spatial data:
+lnd <- readOGR(dsn = ".", "london_sport")
+plot(lnd)
+# counting the number of polygons
+nrow(lnd)
+
+# let's join this data with another data set - crime!
+
+download.file('http://data.london.gov.uk/datafiles/crime-community-safety/mps-recordedcrime-borough.csv', destfile = 'mps-recordedcrime-borough.csv')
+#many thanks to stackoverflow for troubleshooting the errors this file threw..
+crimeDat <- read.csv("mps-recordedcrime-borough.csv")
+
+head(crimeDat)
+summary(crimeDat$MajorText)
+crimeTheft <- crimeDat[which(crimeDat$MajorText == "Theft and Handling"), ]
+head(crimeTheft, 2) 
+crimeAg <- aggregate(CrimeCount ~ Spatial_DistrictName, FUN = "sum", data = crimeTheft)
+head(crimeAg, 2)
+# now data at borough level - need names to match up on the datasets
+
+lnd$name %in% crimeAg$Spatial_DistrictName
+
+lnd$name[which(!lnd$name %in% crimeAg$Spatial_DistrictName)]
+
+#They all match but one - code below renames them
+levels(crimeAg$Spatial_DistrictName)
+levels(crimeAg$Spatial_DistrictName) [25] <- as.character(lnd$name[which(!lnd$name %in% crimeAg$Spatial_DistrictName)])
+lnd$same %in% crimeAg$Spatial_DistrictName
+
+# join by name
+
+head(lnd$name)
+head(crimeAg$Spatial_DistrictName)
+# these are the variables I want to join
+crimeAg <- rename(crimeAg, replace = c(Spatial_DistrictName = "name"))
+head(join(lnd@data, crimeAg))
+
+lnd@data <- join(lnd@data, crimeAg)
+
+
+#adding point data for clipping and spatial join
+
+
+download.file("http://www.personal.leeds.ac.uk/~georl/egs/lnd-stns.zip", "lnd-stns.zip")
+unzip("lnd-stns.zip")
+
+stations <- readOGR(dsn = ".", layer = "lnd-stns", p4s = "+init=epsg:27700")
+proj4string(stations)  
+proj4string(lnd)
+bbox(stations)
+bbox(lnd)
+
+stationsWGS <- spTransform(stations, CRSobj = CRS(proj4string(lnd)))
+stations <- stationsWGS
+rm(stationsWGS)
+plot(lnd)
+points(stations[sample(1:nrow(stations), size = 500), ])
+
+# overlays the map - yay, but too many points - boo, we need to clip!
+
+int <- gIntersects(stations, lnd, byid = T)  
+
+# look for intersections
+
+class(int) 
+dim(int)
+# output a matrix with 33 rows (one for each zone) and 2532 columns (the points)
+summary(int[, c(200, 500)])  
+plot(lnd)
+points(stations[200, ], col = "red")  # note point id 200 is outside the zones
+points(stations[500, ], col = "green")  # note point 500 is inside
+which(int[, 500] == T)  # this tells us that point 500 intersects with zone 32
+points(coordinates(lnd[32, ]), col = "black")  # test the previous statement
+
+# this figured out which polygon the points were in and then tests them to see if they are within or outside the mapping area
+
+clipped <- apply(int == F, MARGIN = 2, all)
+plot(stations[which(clipped), ])  
+# shows all stations we DO NOT want
+stations.cl <- stations[which(!clipped), ]  
+# use ! to select the inverse - how show us what we WANT
+points(stations.cl, col = "green")  # check that it's worked
+
+stations <- stations.cl
+rm(stations.cl)  
+
+# removes the extras
+
+int <- gIntersects(stations, lnd, byid = T)
+head(apply(int, MARGIN = 2, FUN = which))
+b.indexes <- which(int, arr.ind = T)
+summary(b.indexes)
+b.names <- lnd$name[b.indexes[, 1]]
+b.count <- aggregate(b.indexes ~ b.names, FUN = length)
+head(b.count)
+
+# this block of code re runs the intersection, then extracts the index of the row (borough) and converts that into names. b.count = the number of station points in each zone. to plot the data:
+
+plot(lnd[which(grepl("Barking", lnd$name)), ])
+points(stations)
+# seems to have worked -  now need to join data to polygon - names need to match up
+
+b.count <- rename(b.count, replace = c(b.names = "name"))
+b.count.tmp <- join(lnd@data, b.count)
+
+head(b.count.tmp, 2)
+
+lnd$station.count <- b.count.tmp[, 7]
+
+
+
+
+
+```
+

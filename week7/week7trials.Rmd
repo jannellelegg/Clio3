@@ -1,0 +1,379 @@
+---
+title: "week7trials"
+author: "Jannelle Legg"
+date: "October 7, 2014"
+output: html_document
+---
+Week 7 homework, tutorials and general playing with spatial mapping in R.
+
+```{r}
+# load the separate libraries
+library(ggplot2)
+library(sp)
+library(rgdal)
+library(maptools)
+library(rgeos)
+library(ggmap)
+library(plyr)
+library(classInt)
+library(dplyr)
+library(tidyr)
+library(historydata)
+
+#install.packages(c("classInt", "RColorBrewer"), dependencies = TRUE)
+
+#devtools::install_github("hadley/lazyeval")
+#devtools::install_github("hadley/dplyr")
+
+```
+
+```{r}
+#now to load the shapefile - initally got an error because my data wasn't in a folder called data.. tricky tricky... fixed it.
+
+map_sp <- readOGR("nhgis-shp/", "state_1850")
+
+class(map_sp)
+str(map_sp, max.level = 2)
+#exploring the data:
+map_sp@bbox
+map_sp@proj4string
+head(map_sp@data)
+
+plot(map_sp)
+
+# thinking about projection of maps:
+
+earth <- readOGR("50m_physical/ne_50m_land.shp", "ne_50m_land")
+plot(earth, col="grey")
+title("The World According to EPSG 4326")
+
+# converting to the Winkel map
+
+winkel <- spTransform(earth, CRS("+proj=wintri"))
+plot(winkel, col = "grey")
+title("The World According to Oswald Winkel")
+
+# oooh squishy. Moving on to layering data on the map like we did with Lovelace and Cheshire
+
+
+```
+
+```{r}
+
+geocode("San Francisco, CA", output = "more")
+
+# build a dataframe with cities we want to plot (added Iowa because.. pride)
+cities <- data.frame(name = c("Saint Louis, MO",
+                              "San Francisco, CA",
+                              "Boston, MA",
+                              "Charleston, SC",
+                              "Cedar Rapids, IA",
+                              "Houston, TX"), stringsAsFactors = FALSE)
+
+cities_geocoded <- geocode(cities$name)
+cities <- cbind(cities, cities_geocoded)
+
+#now to plot the data
+
+ggplot(cities, aes(x = lon, y = lat)) +
+  geom_point() +
+  geom_text(aes(label = name), vjust = -1) +
+  coord_map()
+
+#great, now those are plotted according to lat and long.
+
+```
+
+```{r}
+# first we're gonna plot the 1850 map
+
+map_df <- fortify(map_sp, region = "GISJOIN")
+head(map_df)
+
+map_1850 <- ggplot() +
+  geom_map(data = map_df,
+           map = map_df,
+           aes(x = long, y = lat, group = group, map_id = id), 
+           fill = "white",
+           color = "black",
+           size = 0.2) +
+  coord_map() +
+  theme_minimal()
+map_1850
+
+# now the same map is also plotted
+
+map_1850 +
+  geom_point(data = cities, aes(x = lon, y = lat),
+             color = "red", size = 3) +
+  geom_text(data = cities, aes(x = lon, y = lat, label = name),
+            vjust = -1)
+
+```
+
+```{r}
+# grab data from the Paulist Missions
+data(paulist_missions)
+# hmm no paulist missions found - using Catholic Diocese instead?
+
+data(catholic_dioceses)
+glimpse(catholic_dioceses)
+
+#breaking away from the Mullen tutorial here. He sized the points by the number of confessions. First I'll size them the same then try and figure out how to distingish them from one another
+
+map_1850 +
+  geom_point(data = catholic_dioceses,
+             aes(x = long, y = lat),
+             color = "blue", shape = 1)+
+  theme(legend.position = "bottom") +
+  scale_size(range = c(2,8)) +
+  ggtitle("Catholic Dioceses")
+
+# it worked, but because this data has content pulled from all over, the map is pretty small.
+
+# let's use the descripions to look at density
+
+map_1850 +
+  geom_density2d(data = catholic_dioceses,
+                 aes(x = long, y = lat)) +
+  theme(legend.position = "bottom") +
+  ggtitle("Catholic Dioceses with density plot")
+
+# OOOH THIS IS SUPER COOL - it highlights the major centers!
+
+```
+
+```{r}
+# trying Choropleths 
+
+counties_1850_sp <- readOGR("nhgis-shp/", "US_county_1850")
+counties_1850_df <- fortify(counties_1850_sp, region = "GISJOIN")
+glimpse(counties_1850_df)
+
+#Questions for class: how do you know which variable to use for merging?
+# hmm I can't find the farms data either... 
+
+farms_1850 <- read.csv("historydata/data/   data/nhgis-farmland-value/nhgis0032_ds11_1850_county.csv", stringsAsFactors = FALSE)
+
+
+
+```
+
+```{r}
+# okay, let's try to build something with my own data and shape file
+# Unfortunately, it will require some clean-up!
+
+
+rawdeafdata1840 <- read.csv("deafdata/nhgis0005_ds7_1840_state.csv", stringsAsFactors= FALSE)
+
+rawdeafdata1840
+
+# according to the NHGIS codebook for this year: the codes beginning with AC3 and ACG indicated information about age and race. White: AC3001:Under 14 years of age, AC3002:14 to 24 years of age, AC3003:25 years of age and over; ACG = "Deaf and Dumb Colored Persons of all ages" - let's rename some columns!
+
+tidyDeafData1840 <- rawdeafdata1840 %>%
+  tbl_df() %>%
+  select(GISJOIN,
+         year = YEAR,
+         state = STATE,
+         statea = STATEA,
+         whiteUnder14 = AC3001,
+         white14to24 = AC3002,
+         whiteOver25 = AC3003,
+         allagePOC = ACG001,
+         -AREANAME)
+
+glimpse(tidyDeafData1840)
+
+  # great, let's try to join it with the shape file Lincoln provided.
+  
+deafmap <- readOGR("nhgis-shp/", "state_1840")
+class(deafmap)
+str(deafmap, max.level = 2)
+
+plot(deafmap)
+
+# now we have to turn this shapefile into a data frame
+
+deafmap_df <- fortify(deafmap, region = "GISJOIN")
+head(deafmap_df)
+
+# now let's plot that data frame!
+
+deafmap1840 <- ggplot() +
+  geom_map(data = deafmap_df,
+           map = deafmap_df,
+           aes(x = long, y = lat, group = group, map_id = id),
+           fill = "white",
+           color = "black",
+           size = 0.2) +
+  coord_map() +
+  theme_minimal()
+deafmap1840
+
+# okay, let's try and plot some of our data. 
+
+deafmap1840 +
+  geom_point(data = tidyDeafData1840, aes(x = lon, y = lat),
+             color = "red", size = 3) +
+  geom_text(data = tidyDeafData1840, aes(x = lon, y = lat, label = name),
+            vjust = -1)
+
+# Okay, that didn't work.. because, of course my data file doesn't have a lon, lat - it's locked up in the GIS information. We need to merge the sets of data - the shape file has an id column. And the data has a GISJOIN. Let's start there.
+
+```
+
+```{r}
+# trying to join the data together. 
+
+deafmap <- readOGR("nhgis-shp/", "state_1840")
+class(deafmap)
+str(deafmap, max.level = 2)
+
+plot(deafmap)
+
+# now to a data frame
+
+deafmap_df <- fortify(deafmap, region = "GISJOIN")
+head(deafmap_df)
+
+# okay, now this dataframe has a lat long and an id number- I've got the census data packaged in TidyDeafData1840
+
+tidyDeafData1840 <- rawdeafdata1840 %>%
+  tbl_df() %>%
+  select(GISJOIN,
+         year = YEAR,
+         state = STATE,
+         statea = STATEA,
+         whiteUnder14 = AC3001,
+         white14to24 = AC3002,
+         whiteOver25 = AC3003,
+         allagePOC = ACG001,
+         -AREANAME)
+
+glimpse(tidyDeafData1840)
+
+# now to join the ID and the GISJOIN
+
+deaf1840merged <- deafmap_df %>%
+  left_join(tidyDeafData1840, by = c("id" = "GISJOIN"))
+glimpse(deaf1840merged)
+```
+
+```{r}
+
+# now that all the data is in one package, it's time to map - finally!
+
+whiteUnder14map <- ggplot(data = deaf1840merged,
+       aes(x = long, y = lat, group = group, fill = whiteUnder14, map_id = id)) +
+  geom_map(map = deaf1840merged) + 
+  ggtitle("1840 Census - Deaf and Dumb - white, under 14") + 
+  coord_map() +
+  theme_minimal() +
+  theme(legend.position = "bottom") 
+
+whiteUnder14map
+
+# ah! Even though it looks pretty - this is a failure because I made a pretty silly mistake. I need the respondant data to be in one column, rather than split into three. I could produce four separate maps:
+```
+
+```{r}
+ggplot(data = deaf1840merged,
+       aes(x = long, y = lat, group = group, fill = white14to24, map_id = id)) +
+  geom_map(map = deaf1840merged) + 
+  ggtitle("1840 Census - Deaf and Dumb - white, 14 to 24") + 
+  coord_map() +
+  theme_minimal() +
+  theme(legend.position = "bottom") 
+
+# adding some more fun stylized stuff: can't seem to change the color without completely distorting the map.
+
+white14to24map <- ggplot(data = deaf1840merged,
+       aes(x = long, y = lat, group = group, fill = white14to24, map_id = id)) +
+  geom_map(map = deaf1840merged) + 
+  ggtitle("1840 Census - Deaf and Dumb - white, 14 to 24") + 
+  coord_map() +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+white14to24map
+
+```
+
+```{r}
+
+whiteOver25map <- ggplot(data = deaf1840merged,
+       aes(x = long, y = lat, group = group, fill = whiteOver25, map_id = id)) +
+  geom_map(map = deaf1840merged) + 
+  ggtitle("1840 Census - Deaf and Dumb - white, over 25") + 
+  coord_map() +
+  theme_minimal() +
+  theme(legend.position = "bottom") 
+
+whiteOver25map
+
+```
+
+```{r}
+allAgePOCmap <- ggplot(data = deaf1840merged,
+       aes(x = long, y = lat, group = group, fill = allagePOC, map_id = id)) +
+  geom_map(map = deaf1840merged) + 
+  ggtitle("1840 Census - Deaf and Dumb - People of Color, all ages") + 
+  coord_map() +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+allAgePOCmap
+
+
+```
+
+```{r}
+# separate maps aren't exactly useful... I want to compare on ONE MAP.. time to tidy
+
+deafRespondants1840<- tidyDeafData1840 %>%
+   select(GISJOIN,
+         year,
+         state,
+         statea,
+         whiteUnder14,
+         white14t024,
+         whiteOver25,
+         allagePOC) %>%
+  gather(respondants, results, -GISJOIN, -year, -state, - statea)
+ 
+glimpse(deafRespondants1840)
+
+# okay, let's run that code again, this time using respondants:
+# merge the code again.
+
+deaf1840all <- deafmap_df %>%
+  left_join(deafRespondants1840, by = c("id" = "GISJOIN"))
+glimpse(deaf1840all)
+
+allDeaf1840map <- ggplot(data = deaf1840all,
+       aes(x = long, y = lat, group = group, fill = results, map_id = id)) +
+  geom_map(map = deaf1840all) + 
+  ggtitle("1840 Census - Deaf and Dumb") + 
+  coord_map() +
+  theme_minimal() +
+  theme(legend.position = "bottom") 
+
+allDeaf1840map
+
+# okay, I have gradient blue map. But this doesn't tell me anything either! - let's try to break this up a little bit. Creating greater difference in the scale doesn't really help because what I'm trying to do is create a comparative map - using multiple columns. 
+
+# just putting them together in "fill" doesn't work - because theres no data there
+allmap <- ggplot(data = deaf1840merged,
+       aes(x = long, y = lat, group = group, fill = whiteUnder14 + white14to24 + whiteOver25 + allagePOC, map_id = id)) +
+  geom_map(map = deaf1840merged) + 
+  ggtitle("1840 Census - Deaf and Dumb - comparing respondants") + 
+  coord_map() +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+allmap
+
+
+
+```
+
