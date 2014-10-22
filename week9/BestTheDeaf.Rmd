@@ -1,0 +1,303 @@
+---
+title: "Week9-TextMining"
+author: "Jannelle Legg"
+date: "October 22, 2014"
+output: html_document
+---
+
+Working through Jockers with my data - spent a lot of time playing with finding information in R, organizing it.
+
+
+```{r}
+#voltadata <- scan("~/Clio3/week9/The_Volta_Review.txt", what="character", sep="\n")
+
+#Hmm.. need to find a .txt example online. GOT ONE!
+#DMJ1872_11_14 <- scan("http://archive.org/stream/GuDeafmutesjo18721114_201311/gu_deafmutesjo18721114_djvu.txt", what="character", sep="\n")
+
+#voltadata
+#voltadata[1]
+
+#lets look for the beginning of the text: oh, this one is huge. let's work with DMJ
+# No. soo many errors..
+
+#buffAndBlue <- scan("http://archive.org/stream/gu_buffandblue19411017/gu_buffandblue19411017_djvu.txt", what="character", sep="\n")
+
+#buffAndBlue
+
+#okay, first line of the paper should be "Welcome Students", the last is "SPORTSWEAR, THIRD FLOOR"
+
+#buffAndBlue[9]
+
+#start <- which(buffAndBlue == "WELCOME STUDENTS")
+#end <- which(buffAndBlue == "SPORTSWEAR, THIRD FLOOR")
+
+# failure - lets try this with something easier.
+
+plainText <- scan("http://www.gutenberg.org/cache/epub/23320/pg23320.txt", what="character", sep="\n")
+
+#plainText
+plainText[1]
+
+# figure out which lines = beginning/end
+bestStart <- which(plainText == "CHAPTER I")
+bestEnd <- which(plainText == "well-being.")
+
+bestStart
+bestEnd
+
+# figure out the length (how many newlines in the text)
+
+length(plainText)
+
+# strip out metadata from the book 
+
+bestStart.metadata <- plainText [1:bestStart -1]
+bestEnd.metadata <- plainText[ (bestEnd+1) :length(plainText)]
+bestmetadata <- c(bestStart.metadata, bestEnd.metadata)
+best.lines <- plainText[bestStart:bestEnd]
+
+#looking at what we've got:
+plainText[bestStart]
+plainText[bestStart-1]
+plainText[bestEnd]
+plainText[bestEnd+1]
+
+length(plainText)
+length(best.lines)
+length(plainText) - length(best.lines)
+
+
+# joining each line into ONE comprehensive variable
+
+bestdata <- paste(best.lines, collapse= " ")
+length(bestdata)
+bestdata[1]
+
+#make it all lowercase:
+
+best.lower <- tolower(bestdata)
+
+# split text strings - identify word boundaries with strsplit to make a LIST of words
+best.words <- strsplit(best.lower, "\\W")
+
+# keeping track of type of object:
+class(best.lower)
+class(best.words)
+
+str(best.words)
+
+# making it not a list anymore:
+best.words <- unlist(best.words)
+
+# identifying blanks (former punctuation)
+not.blanks <- which(best.words!="")
+not.blanks
+
+# now that non-blanks are identified, overwrite best to contain  words
+
+best.words <- best.words[not.blanks]
+best.words
+
+# identifying word positions:
+
+best.words[7141]
+best.words[2345:2355]
+
+
+mypositions <- c(4,5,6)
+best.words[mypositions]
+# same thing as:
+best.words[c(4,5,6)]
+
+# finding position for a specific word:
+which(best.words=="deaf")
+
+best.words[which(best.words=="deaf")]
+
+```
+
+finding some occurences..
+
+```{r}
+#beginning analysis
+
+length(best.words[which(best.words=="deaf")])
+length(best.words)
+
+#percentage of deaf occurences
+
+usagedeaf <- length(best.words[which(best.words=="deaf")])
+total.words <- length(best.words)
+usagedeaf/total.words
+
+#how many words he uses:
+length(unique(best.words))
+
+# how often he uses words, which words are faves
+best.freqs <- table(best.words)
+sorted.best.freqs <- sort(best.freqs , decreasing=TRUE)
+
+sorted.best.freqs
+
+sorted.best.freqs[1:20]
+plot(sorted.best.freqs[1:10])
+#fancy plot:
+plot(sorted.best.freqs[1:10], type="b",
+     xlab="Top Ten Words", ylab="Word Count", xaxt ="n")
+axis(1,1:10, labels=names (sorted.best.freqs[1:10]))
+```
+
+finding frequencies for specific words..
+```{r}
+#chapter 3
+
+sorted.best.freqs["deaf"]
+sorted.best.freqs["mute"]
+sorted.best.freqs["dumb"]
+sorted.best.freqs["language"]
+sorted.best.freqs["speak"]
+sorted.best.freqs["sign"]
+
+
+# how much more often "deaf" than "mute"
+
+sorted.best.freqs["deaf"]/sorted.best.freqs["mute"]
+sorted.best.freqs["speak"]/sorted.best.freqs["sign"]
+
+# looking at percentages = more useful
+
+sorted.best.rel.freqs <- 100*(sorted.best.freqs/sum(sorted.best.freqs))
+
+sorted.best.rel.freqs["deaf"]
+
+# plot by percentage
+
+plot(sorted.best.rel.freqs[1:10], type="b",
+     xlab="Top Ten Words", ylab="Percentage of Full Text", xaxt ="n")
+axis(1,1:10, labels=names(sorted.best.rel.freqs[1:10]))
+
+
+```
+
+looking at words across the text
+```{r}
+# Chapter 4
+
+# dispersion plots look at order of words as "time"
+# first have to create a sequence - from first word to last word.
+
+n.time <- seq(1:length(best.words))
+
+# now n.time = all the positions of every word in the book
+
+deafs <- which(best.words == "deaf")
+deafs
+
+deafcount <- rep(NA, length(n.time))
+deafcount[deafs] <- 1
+
+plot(deafcount, main="Dispersion Plot of 'deaf' in The Deaf",
+     xlab="place in book", ylab="deaf", type="h", ylim=c(0,1), yaxt='n')
+
+# same for speech
+speechs <- which(best.words == "speech") #find 'speech'
+speechcount <- rep(NA, length(n.time))
+#change variable to keep separate variables
+speechcount[speechs] <- 1 #mark the occurances with a 1 (for TRUE)
+plot(speechcount, main="Dispersion Plot of 'speech' in The Deaf",
+     xlab="position in book", ylab="speech", type="h", ylim=c(0,1), yaxt='n')
+
+#same for language
+
+languages <- which(best.words == "language") 
+languagecount <- rep(NA, length(n.time))
+languagecount[languages] <- 1
+plot(languagecount, main="Dispersion Plot of 'language' in The Deaf",
+     xlab="place in book", ylab="language", type="h", ylim=c(0,1), yaxt='n')
+
+```
+
+grep stuff not working well
+```{r}
+# now grep stuff.. not clearing the workspace.
+
+rm(list = ls())
+ls()
+
+text.v <- scan("http://www.gutenberg.org/cache/epub/2701/pg2701.txt", what="character", sep="\n")
+start.v <- which(text.v == "CHAPTER 1. Loomings.")
+end.v <- which(text.v == "orphan.")
+novel.lines.v <- text.v[start.v:end.v]
+
+novel.lines.v
+
+plainText <- scan("http://www.gutenberg.org/cache/epub/23320/pg23320.txt", what="character", sep="\n")
+
+bestStart <- which(plainText == "CHAPTER I")
+bestEnd <- which(plainText == "well-being.")
+best.lines <- plainText[bestStart:bestEnd]
+
+best.lines
+
+
+#grabbing the chapter breaks by looking at how the txt file is structured
+
+chap.positions <- grep("^CHAPTER", best.lines)
+best.lines[chap.positions]
+
+chap.positions
+
+# this marks all the beginnings of chapters - need to mark ends too
+
+best.lines <- c(best.lines, "END")
+last.position <- length(best.lines)
+chap.positions <- c(chap.positions , last.position)
+
+chap.positions
+
+chap.positions.v[2]
+
+for(i in 1:length(chap.positions)) {
+  print(chap.positions[i])
+}
+
+# makes it easier to see which chapter is where:
+
+for(i in 1:length(chap.positions)) { 
+  print(paste("Chapter ",i, " begins at position ",
+              chap.positions[i]), sep="")
+  }
+
+
+# creating empty list objects to store data
+
+chapter.raws <- list()
+chapter.freqs <- list()
+
+#figuring out the beginning and ending of the chapters
+
+for(i in 1:length(chap.positions)){
+  if(i != length(chap.positions)){
+    chapter.title <- best.lines[chap.positions[i]]
+    start <- chap.positions[i]+1
+    end <- chap.positions[i+1]-1
+    chapter.lines <- best.lines[start:end]
+    chapter.words <- tolower(paste(chapter.lines, collapse=" "))
+    chapter.words.1 <- strsplit(chapter.words, "\\W")
+    chapter.word <- unlist(chapter.words.1)
+    chapter.word <- chapter.word[which(chapter.word !="")]
+    chapter.freqs <- table(chapter.word)
+    chapter.raws[[chapter.title]] <- chapter.freqs
+    chapter.freqs.rel <- 100*(chapter.freqs/sum(chapter.freqs))
+    chapter.freqs[[chapter.title]] <- chapter.freqs.rel
+  }
+}
+
+# lots of errors here.. doesn't seem to like chapter title in two brackets - but when I use one bracket.. i also get errors.
+
+chapter.freqs
+chapter.raws
+
+chapter.freqs[[2]] ["deaf"]
+```
+
