@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Church Mission to Deaf-Mutes, 1873-1879</title>
+
+
+<!-- add style sheet and scripts here -->
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script scr="topojson-master/topojson.js"> </script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="row">
+  <div class="small-12 columns">
+    <h2>The Church Mission to Deaf-Mutes, 1873-&ndash;1879</h2>
+  </div>
+</div>
+
+<!-- this is the map visualiztion -->
+<div class="row">
+  <div class="small-12 columns" id="map">
+  </div>
+</div>
+
+<!-- this is the structure for the slider -->
+<div class="row">
+  <div class="small-12 columns">
+    <div id="year-indicator">
+      <input type="checkbox" id="all-checkbox" checked="true" />
+      <label for="all-checkbox">Display all years</label>
+      <div id="year-selector"></div>
+      <label id="year-label">Year displayed: <span 
+          id="current-year">1873-1879</span></label>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" id="notes">
+  <div class="small-12 columns">
+
+    <hr/>
+
+    <p>Descriptive text here. </p>
+
+    <p>Even more descriptive text.</p>
+
+  </div>
+</div>
+
+<script src="final.js"></script>
+
+</body>
+</html>

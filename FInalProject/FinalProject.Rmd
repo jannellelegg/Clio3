@@ -1,0 +1,55 @@
+---
+title: "FinalProject"
+author: "Jannelle Legg"
+date: "November 15, 2014"
+output: html_document
+---
+
+
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(rgdal)
+library(ggmap)
+
+rawData <- read.csv("Mission-Services2.csv", stringsAsFactors = FALSE)
+rawData
+
+cleanedData <- rawData %>%
+  tbl_df() %>%
+  select(year = Year,
+         facility = Facility,
+         location = Location,
+         frequency = Services.Held,
+         churchClergy = permanent.clergy,
+         CMDMClergy = CMDM.clergy,
+         notes = notes)
+
+```
+
+Now that my data is pulled in and organized a bit, need to grab the geocode data using the ggmap library. To do that I need to pull out the city names, create a new frame with the new data and then bind the data back.
+
+```{r}
+locations <- cleanedData %>%
+  tbl_df() %>%
+  select(location)
+
+locations_geocoded <- geocode(locations$location)
+locations_geocoded
+
+locations <- cbind(locations, locations_geocoded)
+
+cleanedData <- cbind(cleanedData, locations_geocoded)
+
+cleanedData
+
+```
+
+Now I have a chart that provides information on the year, location, frequency (sort of), and clergy for the Church Mission to Deaf-Mutes between 1873 and 1879.
+
+```{r}
+write.csv(cleanedData, file="cleanCMDM.csv", row.names=FALSE)
+```
+
