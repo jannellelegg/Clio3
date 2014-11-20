@@ -11,8 +11,7 @@ var path = d3.geo.path()
 .projection(projection);
 
 // Create the SVGs
-var map_svg = d3.select("#map")
-.append("svg")
+var map_svg = d3.select("#map").append("svg")
 .attr("width", map_width)
 .attr("height", map_height);
 
@@ -22,14 +21,15 @@ queue()
 .await(ready);
 
 function ready(error, state_1870, location) {
+  console.log(state_1870);
   map_svg.selectAll(".states")
-  .data(topojson.feature(state_1870, state_1870.objects.states).features)
+  .data(topojson.feature(state_1870, state_1870.objects.state_1870).features)
   .enter().append("path")
   .attr("class", function(d) { return "state " + d.id; })
   .attr("d", path);
 
   map_svg.append("path")
-  .datum(topojson.mesh(state_1870, state_1870.objects.states))
+  .datum(topojson.mesh(state_1870, state_1870.objects.state_1870))
   .attr("d", path)
   .attr("class", "border");
 
@@ -40,10 +40,8 @@ function ready(error, state_1870, location) {
 
   // .attr("r", function(d) {return 2 * Math.sqrt(d.converts)})
   .attr("r", 3)
-  .attr("class","location")
-  .attr("transform", function(d) {return "translate(" + projection([d.long,d.lat]) + ")";});
-
-
+  .attr("class","mission")
+  .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});
 
   }
 
