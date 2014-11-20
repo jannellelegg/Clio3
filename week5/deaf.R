@@ -12,9 +12,11 @@ length(deaf)
 deaf
 
 ggplot(data=deaf,aes(x=Census.year,y=Total.Population)) + geom_bar(stat="identity")
-#broken - doesn't show a comparison #
+#broken - doesn't show a comparison
 
 ggplot(data=deaf,aes(x=Census.year,y=number.deaf)) + geom_bar(stat="identity")
 # broken - pulling number of deaf in order of column, not static)
 
 
+
+#summary(ma.data) lets you look at information about the data - helpful

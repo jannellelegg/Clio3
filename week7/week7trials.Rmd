@@ -143,9 +143,9 @@ map_1850 +
 
 ```
 
-```{r}
-# trying Choropleths 
 
+```{r}
+#trying Chloropleths
 counties_1850_sp <- readOGR("nhgis-shp/", "US_county_1850")
 counties_1850_df <- fortify(counties_1850_sp, region = "GISJOIN")
 glimpse(counties_1850_df)
@@ -153,20 +153,21 @@ glimpse(counties_1850_df)
 #Questions for class: how do you know which variable to use for merging?
 # hmm I can't find the farms data either... 
 
-farms_1850 <- read.csv("historydata/data/   data/nhgis-farmland-value/nhgis0032_ds11_1850_county.csv", stringsAsFactors = FALSE)
+
+#farms_1850 <- read.csv("historydata/data/   data/nhgis-farmland-value/nhgis0032_ds11_1850_county.csv", stringsAsFactors = FALSE)
 
 
 
 ```
 
 ```{r}
+
 # okay, let's try to build something with my own data and shape file
 # Unfortunately, it will require some clean-up!
 
+rawdeafdata1840 <- read.csv("deafdata/nhgis0005_ds7_1840_state.csv", stringsAsFactors = FALSE)
 
-rawdeafdata1840 <- read.csv("deafdata/nhgis0005_ds7_1840_state.csv", stringsAsFactors= FALSE)
-
-rawdeafdata1840
+#rawdeafdata1840
 
 # according to the NHGIS codebook for this year: the codes beginning with AC3 and ACG indicated information about age and race. White: AC3001:Under 14 years of age, AC3002:14 to 24 years of age, AC3003:25 years of age and over; ACG = "Deaf and Dumb Colored Persons of all ages" - let's rename some columns!
 
@@ -187,7 +188,7 @@ glimpse(tidyDeafData1840)
   # great, let's try to join it with the shape file Lincoln provided.
   
 deafmap <- readOGR("nhgis-shp/", "state_1840")
-class(deafmap)
+#class(deafmap)
 str(deafmap, max.level = 2)
 
 plot(deafmap)
@@ -195,7 +196,7 @@ plot(deafmap)
 # now we have to turn this shapefile into a data frame
 
 deafmap_df <- fortify(deafmap, region = "GISJOIN")
-head(deafmap_df)
+#head(deafmap_df)
 
 # now let's plot that data frame!
 
@@ -208,7 +209,7 @@ deafmap1840 <- ggplot() +
            size = 0.2) +
   coord_map() +
   theme_minimal()
-deafmap1840
+#deafmap1840
 
 # okay, let's try and plot some of our data. 
 

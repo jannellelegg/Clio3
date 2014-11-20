@@ -9,6 +9,9 @@ Working through Jockers with my data - spent a lot of time playing with finding 
 
 
 ```{r}
+#install.packages("rJava")
+#library(rJava)
+
 #voltadata <- scan("~/Clio3/week9/The_Volta_Review.txt", what="character", sep="\n")
 
 #Hmm.. need to find a .txt example online. GOT ONE!
@@ -190,7 +193,8 @@ n.time <- seq(1:length(best.words))
 
 # now n.time = all the positions of every word in the book
 
-deafs <- which(best.words == "deaf")
+best.words
+deafs <- which(best.words == "deafness")
 deafs
 
 deafcount <- rep(NA, length(n.time))
@@ -221,15 +225,8 @@ grep stuff not working well
 ```{r}
 # now grep stuff.. not clearing the workspace.
 
-rm(list = ls())
-ls()
-
-text.v <- scan("http://www.gutenberg.org/cache/epub/2701/pg2701.txt", what="character", sep="\n")
-start.v <- which(text.v == "CHAPTER 1. Loomings.")
-end.v <- which(text.v == "orphan.")
-novel.lines.v <- text.v[start.v:end.v]
-
-novel.lines.v
+#rm(list = ls())
+#ls()
 
 plainText <- scan("http://www.gutenberg.org/cache/epub/23320/pg23320.txt", what="character", sep="\n")
 

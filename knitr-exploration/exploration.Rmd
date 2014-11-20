@@ -1,0 +1,38 @@
+---
+title: "exploration"
+author: "Jannelle Legg"
+date: "September 24, 2014"
+output: html_document
+---
+
+```{r}
+library(historydata)
+library(ggplot2)
+data(us_national_population)
+head(us_national_population)
+```
+
+You can also embed plots, for example:
+
+```{r}
+data(us_state_populations)
+ggplot(data=us_state_populations, aes(x = year, y = population, color = state)) + geom_line() + geom_point()
+#geom_bar(stat = "identity")
+#geom_bar(stat="identity", position = "dodge") makes bars side by side
+```
+
+```{r}
+data(us_state_populations)
+ggplot(data=us_state_populations, aes(x = year, y = population, color = state)) + geom_line() + facet_wrap(~state)
+#theme_classic() or theme_minimal() can be used to clean up, simplify presentation
+```
+
+```{r}
+library(lubridate)
+data(naval_promotions)
+ggplot(data = naval_promotions, 
+       aes(x = year(ymd(date)), fill = rank)) + 
+         geom_bar(stat = "bin", position = "dodge")
+```
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+

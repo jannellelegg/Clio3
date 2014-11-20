@@ -13,8 +13,14 @@ These are the judge database attempts:
 
 The first step to cleaning up the data and trying to look at it
 ```{r}
+
+library(tidyr)
+library(dplyr)
+
 dirtyJudge <- read.csv("historydata/jb.csv", stringsAsFactors = FALSE)
-dirtyJudge
+dirtyJudge <- tbl_df(dirtyJudge)
+#dirtyJudge
+
 
 #whew, file is too big to preview. Let's filter out some data we're interested in.
 

@@ -1,0 +1,72 @@
+3 constraits to write a program - 
+	1. imperative programming - tell it to do something, then tell it to do the next thing
+	2. object-oriented programming- program arranged around objects
+	3. functional programming - creating vocabulary and putting it together grammatically
+		stitch words together to make more complex meaning than with any single function.
+
+
+		Goal: how do I write a function, how do i design a function so that it gives me useful inputs and useful outputs?
+
+
+Basics of JavaScript
+
+- its ok to look at examples early on - not cheating
+
+- 
+
+string = anything between ""
+
+objects can have properties added to them
+var a = {title: "Clio3", courseNumber: "HIST698"};
+
+var b = [1,2,3]
+
+b[1]
+2
+b[0]
+1
+b[2]
+3
+b[3]
+undefined
+
+anything can go inside array , can array of strings, can call on them to do many things
+
+c.join
+c.shift()  = pulls things out of an array
+c.pop() = last thing in the element
+c.push() = adds things to the beginning
+
+can put objects in an array
+
+functions: something that does something
+brackets = body of function - anything inside is part of function
+
+var myFunc = function(x) { return x + "hi!"}
+
+in javascript - variable can be string, sometimes when java doesn't know what you want to do with something it will try to do it for you.
+
+take variables and pass them into a function and function will do something with it
+
+typeof (if want to know what something is can use call what it is)
+	typeof 4
+		number
+	typeof "R"
+		string
+
+always use === version
+
+&& - and
+|| - or
+
+two ways to define a function
+
+Looping:
+- for loop creates a counter, does something for as many times as you tell it
+	3 parts
+		- name the variable ;
+		- name a conditional we'll keep doing it as long as the for statement is true;
+		- i++ - take soemthing and add one
+
+
+often will want to step through array, define a counter variable, run it through array then specify 

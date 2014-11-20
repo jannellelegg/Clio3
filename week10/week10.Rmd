@@ -1,0 +1,281 @@
+---
+title: "week10"
+author: "Jannelle Legg"
+date: "October 28, 2014"
+output: html_document
+---
+
+Working through Lincoln's network tutorial
+
+```{r}
+library(igraph)
+library(dplyr)
+library(historydata)
+library(mullenMisc)
+
+sample_data <- data_frame(node_1 = c("A", "B", "C"),
+                          node_2 = c("B", "C", "A"))
+sample_data
+
+#edges = connections
+
+sample_graph <- graph.data.frame(sample_data)
+sample_graph
+
+E(sample_graph)
+#prints out edge sequence
+
+V(sample_graph)
+#prints out vertices
+
+plot(sample_graph)
+
+
+```
+
+Adjacency matrix:
+```{r}
+get.adjacency(sample_graph)
+```
+ Okay. Let's get started with some real data. Tudors doesn't work for me.. on to my own stuff: 
+ 
+ Looking at the ordination of deaf men, I pulled information for each of them about who performed the ordination and who presented each candidate for ordination. These occurred between 1883 and 1908 - my hope was to demonstrate some relationships between members of this network. 
+ 
+ 
+```{r}
+#reading in my data
+
+ordinationdata <- read.csv("Priesthood Ordination chart - Sheet1.csv")
+ordinationdata
+
+ordinationgraph <- graph.data.frame(ordinationdata, directed = FALSE)
+plot(ordinationgraph)
+title("Ordination, first attempt")
+```
+
+Ran the code the first time with directed = TRUE - but the relationships are less defined and the arrows didn't make sense. Next to create some differentiation between the individuals. 
+
+
+```{r}
+
+ordinationPeople <- data_frame(name = V(ordinationgraph)$name, 
+                               deaf = c(TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE))
+ordinationPeople
+
+#I couldn't figure out who the names are to do the TRUE/FALSE, so I had to create the dataframe first, then add to it.
+```
+
+Adding color and shape changes:
+
+```{r}
+V(ordinationgraph)$shape <- ifelse(ordinationPeople$deaf, "square", "circle")
+V(ordinationgraph)$color <- ifelse(ordinationPeople$deaf, "lightblue", "lightgreen")
+plot(ordinationgraph)
+title("Ordination, second attempt")
+```
+
+Adding color to edges:
+
+```{r}
+E(ordinationgraph)$color <- ifelse(E(ordinationgraph)$role == "ordained", "orange", "black")
+plot(ordinationgraph)
+title("Ordination, third attempt")
+```
+
+The hierarchical chart doesn't really help here.. lets look at what we've got..
+
+```{r}
+
+str(ordinationgraph, e = TRUE, v = TRUE, g = TRUE)
+
+```
+
+Trying a bipartite graph:
+```{r}
+missionaries <- data_frame(person = c("John Chamberlain", "Thomas Gallaudet", "Henry W Syle", "Thomas Gallaudet", "Henry W Syle", "Francis Clerc", "Thomas Gallaudet", "Samuel A Adams", "James S Wells", "Thomas Gallaudet", "Austin Mann", "Thomas Gallaudet", "Austin Mann", "Thomas Gallaudet", "Austin Mann", "Job Turner", "Thomas Gallaudet", "Job Turner", "Thomas Gallaudet", "Job Turner", "Thomas Gallaudet" "James S Wells", "Henry W Syle", "Austin Mann", "Francis Clerc", "Francis Clerc", "Francis Clerc", "Jacob M Koehler", "Jacob M Koehler", "James H Cloud", "Jacob M Koehler", "Job Turner", "Job Turner", "Job Turner"),
+                           church = c("St Anns", "St Anns", "St Anns", "All Souls'", "All Souls", "All Souls", "Grace Church, Baltimore", "Grace Church, Baltimore", "Grace Church, Baltimore", "Trinity Church, Turtle Creek", "Trinity Church, Turtle Creek", "St Johns, Cincinatti", "St Johns, Cincinatti", "St James Church, Chicago", "St James Church, Chicago", "Grace Church, Raleigh", "St Philips Church, Atlanta", "St Philips Church, Atlanta", "Christ Church, Norfolk", "Christ Church, Norfolk", "Ascension Church, Washington, DC", "Ascension Church, Washington, DC", "Grace Church, St Louis", "St Stephens", "St Marys", "St Pauls", "Christ Church, Delvan", "St Johns Church, Keokuk", "Christ Church, St Louis", "Christ Church, St Louis",  "St Pauls, Richmond", "St Philips Church, Atlanta", "St Pauls Church, Los Angeles"))
+```
+
+
+```{r}
+missionaries <- data_frame(person = c("John Chamberlain", "Thomas Gallaudet", "Henry W Syle", "Henry W Syle", "Francis Clerc", "Samuel A Adams", "Henry W Syle", "Thomas Gallaudet", "Thomas Gallaudet"),
+                           church = c("St Anns", "St Anns", "St Anns", "All Souls", "All Souls", "Grace Church", "Grace Church", "Grace Church", "All Souls"))
+
+missionaries
+
+missionariesGraph <- graph.data.frame(missionaries, directed = FALSE)
+plot(missionariesGraph)
+```
+
+```{r}
+V(missionariesGraph)
+
+bipartite.mapping(missionariesGraph)
+
+V(missionariesGraph)$type <- bipartite.mapping(missionariesGraph)$type
+
+is.bipartite(missionariesGraph)
+
+plot(missionariesGraph, layout = layout.bipartite)
+title("A bipartite layout of Missionaries")
+```
+
+Now break it up into members
+
+```{r}
+bipartite <- bipartite.projection(missionariesGraph)
+str(bipartite)
+
+plot(bipartite$proj1)
+title("just the missionaries")
+
+plot(bipartite$proj2)
+title("Just the churches")
+```
+
+```{r}
+E(bipartite$proj2)
+
+E(bipartite$proj2)$weight
+
+plot(bipartite$proj2, edge.width = E(bipartite$proj2)$weight)
+title("churches weighted by shared missionaries")
+```
+
+Working in class 10/29
+always ask : what do the different parts of my graph show and what do i visualize by putting them there?
+always ask what do my vertexes mean and edges mean? always be putting it in context - if can't answer =/= a good network
+
+also ask: what have i left off of the network?
+
+math term of network = graph theory
+
+So the idea is not just look at how DMJ prints others, but to look at how all of them print/reprint each other
+
+```{r}
+library(historydata)
+library(mullenMisc)
+library(igraph)
+library(dplyr)
+
+
+data(tudors)
+tudors
+
+graph <- graph.data.frame(tudors, directed = FALSE)
+graph
+class(graph)
+
+V(graph)
+E(graph)
+layout.reingold.tilford(graph)
+
+plot(graph, layout = layout.kamada.kawai)
+
+```
+directed vs not directed
+changes everytime - why - placement of nodes = entirely arbitrary
+can't automatically read into the layout
+lock in a layout with layout = layout. and then press tab- it should give you a lsit of things to try
+
+can also weight edges to indicate additional information (quantity of letters ect)
+
+use layout and reingold tilford graph to get the coordinates for each of the points (USEFUL FOR MAPPING!!)
+
+```{r}
+l<- layout.fruchterman.reingold(graph)
+plot(graph, layout = l)
+
+set.seed(1732)
+```
+ can set the graph in once place using set.seed
+ 
+ 
+```{r}
+tudors_g <- graph.data.frame(tudors, directed = FALSE)
+plot(tudors_g)
+title("The Tudors, take one")
+tudor_people <- data_frame(name = V(tudors_g)$name, 
+                           monarch =  c(TRUE, FALSE, TRUE, FALSE, FALSE,
+                                       FALSE, FALSE, TRUE, TRUE, TRUE, TRUE,
+                                       FALSE, FALSE, FALSE, FALSE, FALSE,
+                                       FALSE, FALSE, FALSE, FALSE, FALSE,
+                                       FALSE, FALSE, FALSE, FALSE))
+
+tudor_people
+
+```
+
+
+```{r}
+graph
+
+V(graph)
+
+V(graph)$shape <- "square"
+V(graph)$color <- "red"
+V(graph)$shape <- ifelse(tudor_people$monarch == TRUE, "square", "circle")
+V(graph)$color <- ifelse(tudor_people$monarch == TRUE, "red", "yellow")
+plot(graph, layout = l)
+
+str(graph, v=TRUE)
+```
+
+to define multiple - use a function
+
+```{r}
+tudor_people <- data_frame(name = V(tudors_g)$name, 
+                           monarch =  c(TRUE, FALSE, TRUE, FALSE, FALSE,
+                                       FALSE, FALSE, TRUE, TRUE, TRUE, TRUE,
+                                       FALSE, FALSE, FALSE, FALSE, FALSE,
+                                       FALSE, FALSE, FALSE, FALSE, FALSE,
+                                       FALSE, FALSE, FALSE, FALSE),
+                           pet = sample (c("dog", "cat", "hamster"), 25, replace = TRUE))
+                                             
+                                             
+table <- data_frame(pet = c("dog", "cat", "hamster"), 
+color = c("brown", "black", "orange"))
+lookup("cat", table)                                         
+```
+
+lookup function enables you to create a table that pulls data into a table so you can look at the aesthetics/content easily in making your graph.
+
+bipartite graph:
+two types of vertexes, lines cannot connect between vertexes
+can connect judges to each other or courts to each other
+
+
+```{r}
+data(judges_appointments)
+judges_appointments
+
+courts <- graph.data.frame(judges_appointments, directed=FALSE)
+plot(courts, vertex.label = NA)
+
+V(courts)
+
+bipartite.mapping(courts)
+# if true = can create a bipartite map with it
+# if one outlier without anyone can't be mapped
+
+V(courts)$type <- bipartite.mapping(courts)$type
+
+courts_2 <- bipartite.projection(courts)
+
+courts_2
+
+plot(courts_2$proj1)
+plot(courts_2$proj2, vertex.label= NA, vertex.size = 2)
+```
+
+Think about this in terms of funding donated to the CMDM - how were funds shuffled from missions into the organization? or membership rolls, donation records
+
+
+
+```{r}
+
+
+
+```
+
+

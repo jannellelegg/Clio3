@@ -1,11 +1,21 @@
-3+4
-5*5
-v <- c (2, 3, 5, 7, 11, 13, 17, 19, 23, 101)
 
-v[3]
-look.at <-1:3
-v[look.at]
+v <- 1:12
+matrix (v, ncol=4)
 
-length(v)
-head(v)
-tail(v)
+matrix(0, 3, 4)
+
+m <- matrix (11:13, 3, 4, byrow=TRUE)
+dim(m)
+length(m)
+head(m, 1)
+
+
+m <- matrix(1:12, 3, 4)
+m
+m[2,4]
+m[2, ]
+m[ ,4]
+m[1:2,4]
+m[1:2, 3:4]
+
+letters
