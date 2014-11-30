@@ -24,6 +24,7 @@
 		}
 	p {
 		font-family: 'Poiret One', serif;
+		font-size:12px;
 		}
 
 /* this styles the map */
@@ -44,7 +45,7 @@
 
 /* this styles the slider */
 	#year-selector {
-		/*width: 500px;*/
+		*width: 500px;*
 		margin-left: 50px;
 		display: inline-block;
 		}

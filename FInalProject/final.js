@@ -7,11 +7,11 @@ var projection = d3.geo.albersUsa()
 .scale(850)
 .translate([map_width / 2, map_height / 2]);
 
-var path = d3.geo.path()
-.projection(projection);
+var path = d3.geo.path().projection(projection);
 
 // Create the SVGs
-var map_svg = d3.select("#map").append("svg")
+var map_svg = d3.select("#map")
+.append("svg")
 .attr("width", map_width)
 .attr("height", map_height);
 
@@ -56,7 +56,7 @@ function ready(error, state_1870, location) {
 
   // Create the slider
 
-  d3.select('#slider7').call(d3.slider().axis(true).min(1873).max(1879).step(1));
+  //d3.select('#slider7').call(d3.slider().axis(true).min(1873).max(1879).step(1));
 
   
 
