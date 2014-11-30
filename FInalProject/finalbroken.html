@@ -8,10 +8,14 @@
 
 <head>
 <link href='http://fonts.googleapis.com/css?family=Niconne|Poiret+One|Goudy+Bookletter+1911' rel='stylesheet' type='text/css'>
-<link href="final.css" rel="stylesheet" type="text/css" />
+<link href="finalbroken.css" rel="stylesheet" type="text/css" />
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/topojson.v1.min.js" charset="utf-8"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
+
+<!-- scripts for slider -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.slider.js"></script>
 
 </head>
 
@@ -26,13 +30,12 @@
 
 <!-- this is the map visualiztion -->
 
-  <div class="grid_9" id="map">
-  </div>
+  <div class="grid_9" id="map"> </div>
 
 
 <!-- this is the structure for the slider -->
 
-  <div class="grid_9">
+<!--   <div class="grid_12">
     <div id="year-indicator">
       <input type="checkbox" id="all-checkbox" checked="true" />
       <label for="all-checkbox"><p>Display all years</p></label>
@@ -40,9 +43,12 @@
       <label id="year-label"><p>Years displayed:</p> <span 
           id="current-year"><p>1873-1879</p></span></label>
     </div>
-  </div>
-  
-<div id="slider7"></div>
+  </div> -->
+
+<div class="grid_2"> </div>
+  <div class="grid_9" id="slider">
+<p>Year: <span id="slider3text">1873</span></p>
+    <div id="slider3"></div></div>
 
 
 <div class="bodytext" id="grid_11">
@@ -63,7 +69,12 @@
 
 </div>
 </div>
-<script src="final.js"></script>
+<script src="finalbroken.js"></script>
+  <script>
+    d3.select('#slider3').call(d3.slider().on("slide", function(evt, value) {
+      d3.select('#slider3text').text(value);
+    }));
+  </script>
 
 </body>
 </html>
