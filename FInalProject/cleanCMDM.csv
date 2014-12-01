@@ -1,102 +1,102 @@
 "year","facility","location","frequency","churchClergy","CMDMClergy","notes","lon","lat"
-1873,"St. Paul's Church","Albany, NY",NA,"unlisted, likely Rev. Mr. Reese","","services held - unclear how many",-73.7562317,42.6525793
-1873,"Church of the Mediator","Allentown, PA",NA,"","","services held - unclear how many",-75.4901833,40.6084305
-1873,"Grace Church","Baltimore, MD",NA,"","","services held - unclear how many",-76.6121893,39.2903848
-1873,"Christ Church","Biddeford, ME",NA,"","","services held - unclear how many",-70.4533844,43.4925843
-1873,"Chapel of the Good Shepherd","Boston, MA",NA,"Rev. Mr. Krans","","services held - unclear how many",-71.0597732,42.3584308
-1873,"Church of the Messiah","Brooklyn, NY",NA,"","","services held - unclear how many",-73.9441579,40.6781784
-1873,"St. Mary's Church","Brooklyn, NY",NA,"","","services held - unclear how many",-73.9441579,40.6781784
-1873,"Christ Church","Buffalo, NY",NA,"","","services held - unclear how many",-78.8783689,42.8864468
-1873,"St. Paul's Church","Flint, MI",NA,"","","services held - unclear how many",-83.6874562,43.0125274
-1873,"Trinity Church","Geneva, NY",NA,"","","services held - unclear how many",-76.985557,42.8679836
-1873,"St. Paul's Church","Hartford, CT",NA,"","","services held - unclear how many",-72.6850932,41.7637111
-1873,"St. John's Church","Lowell, MA",NA,"","","services held - unclear how many",-71.3161718,42.6334247
-1873,"Grace Church","Mexico, NY",NA,"","","services held - unclear how many",-76.2288176,43.4595138
-1873,"St. James' Church","New London, CT",NA,"","","services held - unclear how many",-72.0995209,41.3556539
+1873,"St. Paul's Church","Albany, NY",,"unlisted, likely Rev. Mr. Reese","","services held - unclear how many",-73.7562317,42.6525793
+1873,"Church of the Mediator","Allentown, PA",0,"","","services held - unclear how many",-75.4901833,40.6084305
+1873,"Grace Church","Baltimore, MD",0,"","","services held - unclear how many",-76.6121893,39.2903848
+1873,"Christ Church","Biddeford, ME",0,"","","services held - unclear how many",-70.4533844,43.4925843
+1873,"Chapel of the Good Shepherd","Boston, MA",0,"Rev. Mr. Krans","","services held - unclear how many",-71.0597732,42.3584308
+1873,"Church of the Messiah","Brooklyn, NY",0,"","","services held - unclear how many",-73.9441579,40.6781784
+1873,"St. Mary's Church","Brooklyn, NY",0,"","","services held - unclear how many",-73.9441579,40.6781784
+1873,"Christ Church","Buffalo, NY",0,"","","services held - unclear how many",-78.8783689,42.8864468
+1873,"St. Paul's Church","Flint, MI",0,"","","services held - unclear how many",-83.6874562,43.0125274
+1873,"Trinity Church","Geneva, NY",0,"","","services held - unclear how many",-76.985557,42.8679836
+1873,"St. Paul's Church","Hartford, CT",0,"","","services held - unclear how many",-72.6850932,41.7637111
+1873,"St. John's Church","Lowell, MA",0,"","","services held - unclear how many",-71.3161718,42.6334247
+1873,"Grace Church","Mexico, NY",0,"","","services held - unclear how many",-76.2288176,43.4595138
+1873,"St. James' Church","New London, CT",0,"","","services held - unclear how many",-72.0995209,41.3556539
 1873,"St. Ann's Church","New York City, NY",52,"Rev. Thomas Gallaudet","Gallaudet, Chamberlain, Syle","",-74.0059413,40.7127837
-1873,"Christ Church","Norwich, CT",NA,"","","services held - unclear how many",-72.0759105,41.5242649
-1873,"St. Paul's Church","Paterson, NJ",NA,"","","services held - unclear how many",-74.171811,40.9167654
-1873,"St. Stephen's Church","Philadelphia, PA",NA,"","","services held - unclear how many",-75.163789,39.952335
-1873,"St. Peter's Church","Port Chester, NY",NA,"","","services held - unclear how many",-73.6656834,41.0017643
-1873,"Christ Church","Rochester, NY",NA,"","","services held - unclear how many",-77.6109219,43.16103
-1873,"St. Luke's Church","Rochester, NY",NA,"","","services held - unclear how many",-77.6109219,43.16103
-1873,"Zion Church","Rome, NY",NA,"","","services held - unclear how many",-75.4557303,43.2128473
-1873,"Trinity Church","Saco, ME",NA,"","","services held - unclear how many",-70.4428286,43.5009176
-1873,"Christ Church","Springfield, MA",NA,"","","services held - unclear how many",-72.589811,42.1014831
-1873,"Grace Church","Syracuse, NY",NA,"","","services held - unclear how many",-76.1474244,43.0481221
-1873,"Trinity Church","Syracuse, NY",NA,"","","services held - unclear how many",-76.1474244,43.0481221
-1873,"St. Mark's Church","Tarrytown, NY",NA,"","","services held - unclear how many",-73.8587461,41.0762077
-1873,"St. Paul's Church","Troy, NY",NA,"","","services held - unclear how many",-73.6917851,42.7284117
-1873,"St. Mark's","Washington, DC",NA,"","","services held - unclear how many",-77.0368707,38.9071923
-1873,"Grace Church","Watertown, NY",NA,"","","services held - unclear how many",-75.9107565,43.9747838
-1873,"Trinity Church","Watertown, NY",NA,"","","services held - unclear how many",-75.9107565,43.9747838
-1873,"All Saints' Church","Worcester, MA",NA,"","","services held - unclear how many",-71.8022934,42.2625932
+1873,"Christ Church","Norwich, CT",0,"","","services held - unclear how many",-72.0759105,41.5242649
+1873,"St. Paul's Church","Paterson, NJ",0,"","","services held - unclear how many",-74.171811,40.9167654
+1873,"St. Stephen's Church","Philadelphia, PA",0,"","","services held - unclear how many",-75.163789,39.952335
+1873,"St. Peter's Church","Port Chester, NY",0,"","","services held - unclear how many",-73.6656834,41.0017643
+1873,"Christ Church","Rochester, NY",0,"","","services held - unclear how many",-77.6109219,43.16103
+1873,"St. Luke's Church","Rochester, NY",0,"","","services held - unclear how many",-77.6109219,43.16103
+1873,"Zion Church","Rome, NY",0,"","","services held - unclear how many",-75.4557303,43.2128473
+1873,"Trinity Church","Saco, ME",0,"","","services held - unclear how many",-70.4428286,43.5009176
+1873,"Christ Church","Springfield, MA",0,"","","services held - unclear how many",-72.589811,42.1014831
+1873,"Grace Church","Syracuse, NY",0,"","","services held - unclear how many",-76.1474244,43.0481221
+1873,"Trinity Church","Syracuse, NY",0,"","","services held - unclear how many",-76.1474244,43.0481221
+1873,"St. Mark's Church","Tarrytown, NY",0,"","","services held - unclear how many",-73.8587461,41.0762077
+1873,"St. Paul's Church","Troy, NY",0,"","","services held - unclear how many",-73.6917851,42.7284117
+1873,"St. Mark's","Washington, DC",0,"","","services held - unclear how many",-77.0368707,38.9071923
+1873,"Grace Church","Watertown, NY",0,"","","services held - unclear how many",-75.9107565,43.9747838
+1873,"Trinity Church","Watertown, NY",0,"","","services held - unclear how many",-75.9107565,43.9747838
+1873,"All Saints' Church","Worcester, MA",0,"","","services held - unclear how many",-71.8022934,42.2625932
 1874,"St. Paul's Church","Albany, NY",12,"Rev. Mr. Reese, rector","Rev. Thomas B. Berry, Thomas Gallaudet","",-73.7562317,42.6525793
-1874,"Church of the Mediator","Allentown, MD",NA,"Rev. Mr. Byllesby, rector","","sunday services for a portion of the year",-76.9224062,38.7927375
-1874,"St. Anne's Church","Annapolis, MD",NA,"","","Occasional services",-76.4921829,38.9784453
+1874,"Church of the Mediator","Allentown, MD",0,"Rev. Mr. Byllesby, rector","","sunday services for a portion of the year",-76.9224062,38.7927375
+1874,"St. Anne's Church","Annapolis, MD",0,"","","Occasional services",-76.4921829,38.9784453
 1874,"Grace Church","Baltimore, MD",52,"Rev. Dr. Leeds, rector","Samuel Adams (died), John C. Covell, Thomas Gallaudet","",-76.6121893,39.2903848
-1874,"St. Thomas' Church","Belleville, Canada",NA,"","","Occasional services",-77.3832315,44.1627589
+1874,"St. Thomas' Church","Belleville, Canada",0,"","","Occasional services",-77.3832315,44.1627589
 1874,"Chapel of the Good Shepherd","Boston, MA",4,"Rev. Mr. Krans","Thomas Gallaudet, ","",-71.0597732,42.3584308
 1874,"St. John's Church","Bridgeport, CT",52,"Rev. Mr. Maxcey, rector","","Bible Class",-73.1951767,41.1865478
-1874,"St. Mary's Church","Brooklyn, NY",NA,"","","Occasional services",-73.9441579,40.6781784
-1874,"Christ Church","Buffalo, NY",NA,"","","Occasional services",-78.8783689,42.8864468
-1874,"the Church in Canajoharie","Canajoharie, NY",NA,"","","Occasional services",-74.5718073,42.9056288
-1874,"Grace Church","Cherry Valley, NY",NA,"","","Occasional services",-74.7532018,42.7956294
-1874,"St. Paul's Church","East Bridgeport, CT",NA,"","","Occasional services",-73.1951767,41.1865478
-1874,"St. Paul's Church","Flint, MI",NA,"Rev. Mr. Lane, rector","","sunday services for a portion of the year",-83.6874562,43.0125274
-1874,"St. Paul's Church","Hartford, CT",NA,"","","Occasional services",-72.6850932,41.7637111
-1874,"St. Paul's Church","Jackson, MI",NA,"","","Occasional services",-84.4013462,42.245869
-1874,"St. Michael's Church","Marblehead, MA",NA,"","","Occasional services",-70.8578024,42.4999582
-1874,"Grace Church","Mexico, NY",NA,"","","Occasional services",-76.2288176,43.4595138
+1874,"St. Mary's Church","Brooklyn, NY",0,"","","Occasional services",-73.9441579,40.6781784
+1874,"Christ Church","Buffalo, NY",0,"","","Occasional services",-78.8783689,42.8864468
+1874,"the Church in Canajoharie","Canajoharie, NY",0,"","","Occasional services",-74.5718073,42.9056288
+1874,"Grace Church","Cherry Valley, NY",0,"","","Occasional services",-74.7532018,42.7956294
+1874,"St. Paul's Church","East Bridgeport, CT",0,"","","Occasional services",-73.1951767,41.1865478
+1874,"St. Paul's Church","Flint, MI",0,"Rev. Mr. Lane, rector","","sunday services for a portion of the year",-83.6874562,43.0125274
+1874,"St. Paul's Church","Hartford, CT",0,"","","Occasional services",-72.6850932,41.7637111
+1874,"St. Paul's Church","Jackson, MI",0,"","","Occasional services",-84.4013462,42.245869
+1874,"St. Michael's Church","Marblehead, MA",0,"","","Occasional services",-70.8578024,42.4999582
+1874,"Grace Church","Mexico, NY",0,"","","Occasional services",-76.2288176,43.4595138
 1874,"St. Ann's Church","New York City, NY",52,"Thomas Gallaudet, William Chamberlain, Krans, Henry Winter Syle, (Bible class)","","",-74.0059413,40.7127837
 1874,"St. Stephen's Church","Philadelphia, PA",12,"Rev. Dr. Rudder, rector","Thomas Gallaudet, Chamberlain, or Rev. Dr. Clerc","",-75.163789,39.952335
-1874,"Trinity Church","Potsdam, NY",NA,"","","Occasional services",-74.9813084,44.6697805
-1874,"Christ's Church","Rochester, NY",NA,"Rev. Mr. Battershall, rector","John C. Acker","sunday services for a portion of the year",-77.6109219,43.16103
-1874,"St. James' Church","Syracuse, NY",NA,"","","Occasional services",-76.1474244,43.0481221
-1874,"St. Mark's Church","Tarrytown, NY",NA,"","","Occasional services",-73.8587461,41.0762077
+1874,"Trinity Church","Potsdam, NY",0,"","","Occasional services",-74.9813084,44.6697805
+1874,"Christ's Church","Rochester, NY",0,"Rev. Mr. Battershall, rector","John C. Acker","sunday services for a portion of the year",-77.6109219,43.16103
+1874,"St. James' Church","Syracuse, NY",0,"","","Occasional services",-76.1474244,43.0481221
+1874,"St. Mark's Church","Tarrytown, NY",0,"","","Occasional services",-73.8587461,41.0762077
 1874,"St. Paul's Chapel","Troy, NY",12,"Rev. Mr. Gwynne, Pastor","Rev. Thomas B. Berry, Miss Clapp (Bible Study for Deaf)","Berry = hearing with deaf wife, once a quarter, Gallaudet comes and Berry goes minister elsewhere",-73.6917851,42.7284117
-1874,"St. Mark's Church","Washington, DC",NA,"","","Occasional services",-77.0368707,38.9071923
-1874,"All Saints' Church","Worcester, MA",NA,"","","Occasional services",-71.8022934,42.2625932
+1874,"St. Mark's Church","Washington, DC",0,"","","Occasional services",-77.0368707,38.9071923
+1874,"All Saints' Church","Worcester, MA",0,"","","Occasional services",-71.8022934,42.2625932
 1875,"St. Paul's Church","Albany, NY",12,"Rev. J. Livingston Reese","Rev. Thomas B Berry, Thomas Gallaudet (after he resigned the position- now on last sundays of July, October, January and April, afternoon)","Berry resigned pastorate, accepted position as rector Trinity Church, Granville, NY",-73.7562317,42.6525793
 1875,"Grace Church","Allentown, PA",52,"Rev. Mr. Byllesby","Mr. Thomas Roberts, deaf mute","",-75.4901833,40.6084305
 1875,"Grace Church","Baltimore, MD",52,"Rev. Dr. Leeds, rector","L.C. Tuck, John C. Covell, Rev. Thomas Gallaudet","Tuck licensed layereader in 1874, took over this mission December 1874",-76.6121893,39.2903848
 1875,"Trinity Church","Baltimore, MD",3,"Rev. Dr. Leaken","L.C. Tuck, Thomas Gallaudet","a few special services",-76.6121893,39.2903848
 1875,"Chapel of the Good Shepherd","Boston, MA",4,"Rev. George J. Prescott, Pastor","Gallaudet ","",-71.0597732,42.3584308
 1875,"St. Paul's Church","Bridgeport, CT",52,"Rev. Dr. Richardson, rector","R.D. Beers, deaf, bible class, Galladuet, baptisms","Bible class, occasional services",-73.1951767,41.1865478
-1875,"St. Mark's Church","Brooklyn, NY",NA,"","A.W. Mann","occasional services",-73.9441579,40.6781784
+1875,"St. Mark's Church","Brooklyn, NY",0,"","A.W. Mann","occasional services",-73.9441579,40.6781784
 1875,"St. Mary's Church","Brooklyn, NY",12,"Rev. Dr. Johnson, rector","Gallaudet, Chamberlain, James S. Wells (deaf), James Lewis (deaf)","",-73.9441579,40.6781784
-1875,"St. James' Church","Chicago, IL",NA,"","A.W. Mann","occasional services",-87.6297982,41.8781136
+1875,"St. James' Church","Chicago, IL",0,"","A.W. Mann","occasional services",-87.6297982,41.8781136
 1875,"unnamed, likely to be St. James' Church","Chicago, IL",2,"","A.W. Mann visited by Rev. Gallaudet","at least twice",-87.6297982,41.8781136
-1875,"Grace Church","Cleveland, OH",NA,"","A.W. Mann","occasional services",-81.6943605,41.49932
+1875,"Grace Church","Cleveland, OH",0,"","A.W. Mann","occasional services",-81.6943605,41.49932
 1875,"unnamed, likely to be Grace Church","Cleveland, OH",2,"","A.W. Mann visited by Rev. Gallaudet","at least twice",-81.6943605,41.49932
-1875,"Trinity Church","Columbus, OH",NA,"","A.W. Mann","occasional services",-82.9987942,39.9611755
-1875,"Christ Church","Detroit, MI",NA,"","A.W. Mann visited by Rev. Gallaudet","occasional services",-83.0457538,42.331427
-1875,"St. Paul's Church","Erie, PA",NA,"","A.W. Mann","occasional services",-80.085059,42.1292241
+1875,"Trinity Church","Columbus, OH",0,"","A.W. Mann","occasional services",-82.9987942,39.9611755
+1875,"Christ Church","Detroit, MI",0,"","A.W. Mann visited by Rev. Gallaudet","occasional services",-83.0457538,42.331427
+1875,"St. Paul's Church","Erie, PA",0,"","A.W. Mann","occasional services",-80.085059,42.1292241
 1875,"St. Paul's Church","Flint, MI",2,"Rev. Marcus Lane, rector","A.W. Mann, visited by Rev. Gallaudet","In Nov, June Gallaudet traveled to Michigan, traveled with Mann and preached in various places. At least twice.",-83.6874562,43.0125274
 1875,"unnamed, likely to be St. Mark's Church","Grand Rapids, MI",2,"","A.W. Mann visited by Rev. Gallaudet","at least twice",-85.6680863,42.9633599
-1875,"St. Andrew's Church","Harlem, NY",NA,"","A.W. Mann","occasional services",-73.9464769,40.8115504
-1875,"St. Paul's Church","Jackson, MI",NA,"","A.W. Mann","occasional services",-84.4013462,42.245869
+1875,"St. Andrew's Church","Harlem, NY",0,"","A.W. Mann","occasional services",-73.9464769,40.8115504
+1875,"St. Paul's Church","Jackson, MI",0,"","A.W. Mann","occasional services",-84.4013462,42.245869
 1875,"unnamed, likely to be St. Paul's Church","Jackson, MI",2,"","A.W. Mann visited by Rev. Gallaudet","at least twice",-84.4013462,42.245869
-1875,"Grace Church","Mexico, NY",NA,"","A.W. Mann","occasional services",-76.2288176,43.4595138
+1875,"Grace Church","Mexico, NY",0,"","A.W. Mann","occasional services",-76.2288176,43.4595138
 1875,"unnamed, likely to be All Saint's Cathedral","Milwaukee, WI",2,"","A.W. Mann visited by Rev. Gallaudet","at least twice",-87.9064736,43.0389025
-1875,"St. Mary's Church","Mott Haven, NY",NA,"","A.W. Mann","occasional services",-73.9228881,40.8091068
+1875,"St. Mary's Church","Mott Haven, NY",0,"","A.W. Mann","occasional services",-73.9228881,40.8091068
 1875,"St. Paul's Church","New Haven, CT",52,"Rev. Mr. Lobdell, rector","Mr. Beecher(deaf), Mr. Leek, deaf) bible classes , Gallaudet, one visit in May","bible class, occasional services",-72.9278835,41.308274
 1875,"St. Ann's Church","New York City, NY",52,"Thomas Gallaudet, John Chamberlain","","",-74.0059413,40.7127837
-1875,"Christ Church","Newark, NJ",NA,"","A.W. Mann","occasional services",-74.1723667,40.735657
-1875,"St. Stephen's Church","Newark, NJ",NA,"","A.W. Mann","occasional services",-74.1723667,40.735657
-1875,"Trinity Church","Newark, NJ",NA,"","A.W. Mann","occasional services",-74.1723667,40.735657
-1875,"Christ Church","Newton, NJ",NA,"","A.W. Mann","occasional services",-74.7526651,41.0581527
-1875,"Christ Church","Norwich, CT",NA,"","A.W. Mann","occasional services",-72.0759105,41.5242649
-1875,"St. Stephen's Church","Philadelphia, PA",NA,"Rev. Dr. Rutter, rector","Rev. Dr. Gallaudet, Rev. Mr Chamberlain, Rev. Dr. Clerc (rector Burlington College), Mr. Henry W. Syle","regularly held for most of the year Sunday afternoon",-75.163789,39.952335
-1875,"Trinity Church","Pittsburg, PA",NA,"","A.W. Mann","occasional services",-79.9958864,40.4406248
-1875,"Trinity Church","Potsdam, NY",NA,"","A.W. Mann","occasional services",-74.9813084,44.6697805
-1875,"Grace Church","Providence, RI",NA,"","A.W. Mann","occasional services",-71.4128343,41.8239891
+1875,"Christ Church","Newark, NJ",0,"","A.W. Mann","occasional services",-74.1723667,40.735657
+1875,"St. Stephen's Church","Newark, NJ",0,"","A.W. Mann","occasional services",-74.1723667,40.735657
+1875,"Trinity Church","Newark, NJ",0,"","A.W. Mann","occasional services",-74.1723667,40.735657
+1875,"Christ Church","Newton, NJ",0,"","A.W. Mann","occasional services",-74.7526651,41.0581527
+1875,"Christ Church","Norwich, CT",0,"","A.W. Mann","occasional services",-72.0759105,41.5242649
+1875,"St. Stephen's Church","Philadelphia, PA",0,"Rev. Dr. Rutter, rector","Rev. Dr. Gallaudet, Rev. Mr Chamberlain, Rev. Dr. Clerc (rector Burlington College), Mr. Henry W. Syle","regularly held for most of the year Sunday afternoon",-75.163789,39.952335
+1875,"Trinity Church","Pittsburg, PA",0,"","A.W. Mann","occasional services",-79.9958864,40.4406248
+1875,"Trinity Church","Potsdam, NY",0,"","A.W. Mann","occasional services",-74.9813084,44.6697805
+1875,"Grace Church","Providence, RI",0,"","A.W. Mann","occasional services",-71.4128343,41.8239891
 1875,"St. Luke's Church","Rochester, NY",52,"Rev. Dr. Anstice, rector","Mr. John C. Acker, deaf with Mr. Edward P. Hart (hearing, who sometimes interpreted services in church)","",-77.6109219,43.16103
-1875,"St. Mark's Church","Tarrytown, NY",NA,"","A.W. Mann","occasional services",-73.8587461,41.0762077
+1875,"St. Mark's Church","Tarrytown, NY",0,"","A.W. Mann","occasional services",-73.8587461,41.0762077
 1875,"St. Paul's Chapel","Troy, NY",12,"Rev. Walker Gwynne ","Rev. Thomas B. Berry","began services here (also occasional services in ""other places"")",-73.6917851,42.7284117
-1875,"St. Mark's Church","Washington, DC",NA,"","A.W. Mann","occasional services",-77.0368707,38.9071923
-1875,"Trinity Chruch","Watertown, NY",NA,"","A.W. Mann","occasional services",-75.9107565,43.9747838
-1875,"St. Matthew's Church","Wheeling, WV",NA,"","A.W. Mann","occasional services",-80.7209149,40.0639616
+1875,"St. Mark's Church","Washington, DC",0,"","A.W. Mann","occasional services",-77.0368707,38.9071923
+1875,"Trinity Chruch","Watertown, NY",0,"","A.W. Mann","occasional services",-75.9107565,43.9747838
+1875,"St. Matthew's Church","Wheeling, WV",0,"","A.W. Mann","occasional services",-80.7209149,40.0639616
 1877,"St. Paul's Church","Albany, NY",52,"Rev. Dr. Reese, rector","Rev. Gallaudet, REv. Mr. Berry","Galladuet visted five, for most of the year, Berry interpreted services friday afternoons, moved to Fond-Du-Lac",-73.7562317,42.6525793
 1877,"Grace Church","Allentown, PA",48,"Rev. Mr. Stewart, Pastor","Chamberlain (2), regular services by Thomas S. Roberts","weekly, but missed several due to illness",-75.4901833,40.6084305
 1877,"Name not given","Augusta, ME",1,"","Turner","",-69.7794897,44.3106241
@@ -115,23 +115,23 @@
 1877,"St. James' Church","Chicago, IL",6,"","A.W. Mann visited by Gallaudet","",-87.6297982,41.8781136
 1877,"St. John's Church","Cincinnati, OH",3,"Rev. Mr. Morgan, rector","A.W. Mann visited by Gallaudet, McGregor lay services","",-84.5120196,39.1031182
 1877,"Grace Church","Cleveland, OH",11,"","A.W. Mann visited by Gallaudet","",-81.6943605,41.49932
-1877,"Trinity Church","Columbus, OH",NA,"","A.W. Mann visited by Gallaudet","occasional services",-82.9987942,39.9611755
+1877,"Trinity Church","Columbus, OH",0,"","A.W. Mann visited by Gallaudet","occasional services",-82.9987942,39.9611755
 1877,"St. Paul's Church","Concord, NH",3,"","Turner","",-71.5375718,43.2081366
 1877,"Name not given","Damariscotta, ME",1,"","Turner","",-69.5188884,44.0328765
-1877,"Christ Church","Dayton, OH",NA,"","A.W. Mann visited by Gallaudet","occasional services",-84.1916069,39.7589478
-1877,"Christ Church","Delavan, WI",NA,"","A.W. Mann visited by Gallaudet","occasional services",-88.6437138,42.6330703
+1877,"Christ Church","Dayton, OH",0,"","A.W. Mann visited by Gallaudet","occasional services",-84.1916069,39.7589478
+1877,"Christ Church","Delavan, WI",0,"","A.W. Mann visited by Gallaudet","occasional services",-88.6437138,42.6330703
 1877,"St. Peter's Church","Delaware, OH",3,"","A.W. Mann visited by Gallaudet","",-83.067965,40.2986724
 1877,"St. John's Church","Detroit, MI",3,"","A.W. Mann visited by Gallaudet","",-83.0457538,42.331427
 1877,"Grace Church","Elmira, NY",2,"Rev. Mr. Hoskins, rector","Gallaudet","",-76.8077338,42.0897965
 1877,"Name not given","Fall River, MA",4,"","Turner","",-71.1550451,41.7014912
 1877,"St. Paul's Church","Flint, MI",3,"","A.W. Mann visited by Gallaudet","",-83.6874562,43.0125274
-1877,"St. Mark's Church","Grand Rapids, MI",NA,"","A.W. Mann visited by Gallaudet","Occasional services ",-85.6680863,42.9633599
+1877,"St. Mark's Church","Grand Rapids, MI",0,"","A.W. Mann visited by Gallaudet","Occasional services ",-85.6680863,42.9633599
 1877,"Trinity Church","Granville, NY",1,"Rev. Thomas B. Berry, rector","Berry","",-73.259553,43.4078495
-1877,"Christ Chruch","Indianapolis, IN",NA,"","A.W. Mann visited by Gallaudet","Occasional services",-86.158068,39.768403
+1877,"Christ Chruch","Indianapolis, IN",0,"","A.W. Mann visited by Gallaudet","Occasional services",-86.158068,39.768403
 1877,"St. Paul's Church","Jackson, MI",6,"","Mann","",-84.4013462,42.245869
 1877,"Grace Church","Jersey City, NJ",1,"","James Lewis","",-74.0776417,40.7281575
 1877,"Name not given","Lewiston, ME",1,"","Turner","",-70.2147764,44.100351
-1877,"Christ Church","Louisville, KY",NA,"","A.W. Mann visited by Gallaudet","occasional services",-85.7584557,38.2526647
+1877,"Christ Church","Louisville, KY",0,"","A.W. Mann visited by Gallaudet","occasional services",-85.7584557,38.2526647
 1877,"St. Michael's Church","Marblehead, MA",4,"","Gallaudet","""several times"" - at least 4",-70.8578024,42.4999582
 1877,"Name not given","Martha's Vineyard, MA",1,"","Turner","",-70.645473,41.3804981
 1877,"Grace Church","Mexico, NY",1,"","Mann","",-76.2288176,43.4595138
@@ -142,29 +142,29 @@
 1877,"St. Ann's Church","New York City, NY",52,"Thomas Gallaudet, John Chamberlain","Gallaudet, Chamberlain, Berry (one service)","each led services 26 sundays of the year, Syle visited one time",-74.0059413,40.7127837
 1877,"Name not given","New York City, NY",3,"","Turner","",-74.0059413,40.7127837
 1877,"Name not given","Newport, RI",1,"","Turner","",-71.3128285,41.4901024
-1877,"St. Paul's Chuch ","Newport, KY",NA,"","A.W. Mann visited by Gallaudet","occasional services",-84.4957757,39.091449
+1877,"St. Paul's Chuch ","Newport, KY",0,"","A.W. Mann visited by Gallaudet","occasional services",-84.4957757,39.091449
 1877,"Park Congregational Church","Norwich, CT",2,"","Gallaudet (1) and Turner (1)","",-72.0759105,41.5242649
 1877,"Name not given","Oswego, NY",1,"","Turner","",-76.5104973,43.4553461
 1877,"Name not given","Pawtucket, RI",1,"","Turner","",-71.3825558,41.878711
 1877,"St. Stephen's Church","Philadelphia, PA",53,"Rev. Dr. Rutter, rector","Rev. Dr. Gallaudet, Rev. Mr Chamberlain, Rev. Dr. Clerc (rector Burlington College), Mr. Henry W. Syle","Syle takes control of this ""mission"", Gallaudet =3 sundays, Chamberlain = 2 services",-75.163789,39.952335
-1877,"St. John's Church","Phillipsburg, PA",NA,"","Rev. Dr. Clerc","Occasional services",-80.2714505,40.6872885
+1877,"St. John's Church","Phillipsburg, PA",0,"","Rev. Dr. Clerc","Occasional services",-80.2714505,40.6872885
 1877,"Trinity Church","Pittsburg, PA",2,"Rev. Dr. Hitchcock, rector","A.W. Mann visited by Gallaudet","",-79.9958864,40.4406248
 1877,"St. Luke's Cathedral","Portland, ME",1,"","Turner","requests to move to the South for health reasons",-70.2553259,43.661471
 1877,"Trinity Church","Potsdam, NY",5,"","Pennell","",-74.9813084,44.6697805
 1877,"Grace Church","Providence, RI",4,"","Turner","",-71.4128343,41.8239891
-1877,"St. James' Church","Pulaski, NY",NA,"","Gallaudet visited, Mann too","occasional services",-76.1277027,43.5670136
-1877,"Chapel of Racine College","Racine, WI",NA,"","A.W. Mann visited by Gallaudet","occasional services",-87.7828523,42.7261309
-1877,"St. Paul's Church","Racine, WI",NA,"","A.W. Mann visited by Gallaudet","occasional services",-87.7828523,42.7261309
+1877,"St. James' Church","Pulaski, NY",0,"","Gallaudet visited, Mann too","occasional services",-76.1277027,43.5670136
+1877,"Chapel of Racine College","Racine, WI",0,"","A.W. Mann visited by Gallaudet","occasional services",-87.7828523,42.7261309
+1877,"St. Paul's Church","Racine, WI",0,"","A.W. Mann visited by Gallaudet","occasional services",-87.7828523,42.7261309
 1877,"St. Barnabas' Church","Reading, PA",1,"","Chamberlain","",-75.9268747,40.3356483
 1877,"St. Luke's Church","Rochester, NY",52,"Rev. Dr. Anstice","Edward Pratt, Acker, layreader, Gallaudet visited, Mann too","",-77.6109219,43.16103
-1877,"Zion Church","Rome, NY",NA,"","Gallaudet visited, Mann too","occasional services",-75.4557303,43.2128473
+1877,"Zion Church","Rome, NY",0,"","Gallaudet visited, Mann too","occasional services",-75.4557303,43.2128473
 1877,"Trinity Church","Saco, ME",3,"","Turner","",-70.4428286,43.5009176
-1877,"St. Peter's Church","Salem,",NA,"","Gallaudet","several times",-70.8967155,42.51954
+1877,"St. Peter's Church","Salem,",0,"","Gallaudet","several times",-70.8967155,42.51954
 1877,"St. Paul's Church","Troy, NY",12,"","Berry","",-73.6917851,42.7284117
 1877,"St. Mark's Church","Washington, DC",1,"","Camberlain","",-77.0368707,38.9071923
 1877,"Church of the Intercession","Washington Heights, New York",3,"Rev. Mr. Donald, rector","Gallaudet","",-73.9393554,40.8417082
 1877,"Name not given","West Henniker, NH",1,"","Turner","",-71.8222872,43.1798323
-1877,"All Saints' Church","Worcester, MA",NA,"","Gallaudet visited, Mann and Turner too","occasional services",-71.8022934,42.2625932
+1877,"All Saints' Church","Worcester, MA",0,"","Gallaudet visited, Mann and Turner too","occasional services",-71.8022934,42.2625932
 1877,"St. John's Church","York, PA",1,"","Clerc","",-76.727745,39.9625984
 1878,"St. Paul's Church","Albany, NY",4,"Rev. Dr. Harrison, rector","Gallaudet, Mann","quarterly services",-73.7562317,42.6525793
 1878,"Grace Church","Allentown, PA",52,"","Thomas S. Roberts","",-75.4901833,40.6084305
@@ -182,10 +182,10 @@
 1878,"St. Paul's Church","Boston, MA",12,"","Job Turner, Chamberlain(2)","second sunday each month",-71.0597732,42.3584308
 1878,"St. Paul's Church","Boston, MA",12,"","Gallaudet","once a month",-71.0597732,42.3584308
 1878,"St. Paul's Church","Boston, MA",3,"","Turner","",-71.0597732,42.3584308
-1878,"St. Paul's Church","Bridgeport, CT",NA,"","R.D. Beers","",-73.1951767,41.1865478
+1878,"St. Paul's Church","Bridgeport, CT",0,"","R.D. Beers","",-73.1951767,41.1865478
 1878,"Christ Church","Brooklyn, NY",12,"Rev. Mr. Partridge","Gallaudet","fourth Sunday each month",-73.9441579,40.6781784
-1878,"St. Ann's Church","Brooklyn, NY",NA,"Rev. Dr. Schenck, rector","Gallaudet","at least once",-73.9441579,40.6781784
-1878,"St. Mary's Church","Brooklyn, NY",NA,"Rev. Dr. Johnson, rector","Gallaudet, Chamberlain, Lewis","Second sunday each month. Moved - to the Chapel of St. Ann's Church in Brooklyn, Rev. Dr. Schenck, rector on second sunday of month",-73.9441579,40.6781784
+1878,"St. Ann's Church","Brooklyn, NY",0,"Rev. Dr. Schenck, rector","Gallaudet","at least once",-73.9441579,40.6781784
+1878,"St. Mary's Church","Brooklyn, NY",0,"Rev. Dr. Johnson, rector","Gallaudet, Chamberlain, Lewis","Second sunday each month. Moved - to the Chapel of St. Ann's Church in Brooklyn, Rev. Dr. Schenck, rector on second sunday of month",-73.9441579,40.6781784
 1878,"St. John's Church","Buffalo, NY",3,"","Gallaudet (2), Mann (1)","",-78.8783689,42.8864468
 1878,"St. Peter's Church","Cambridgeport, MA",2,"Rev. Mr. Gushee, rector","Gallaudet","",-71.1077157,42.3595761
 1878,"Georgia Institution for Deaf and Dumb","Cave Spring, GA",1,"","Turner","",-85.3363434,34.1075975
@@ -274,7 +274,7 @@
 1878,"Unnamed Church","Rome, NY",1,"","Turner","",-75.4557303,43.2128473
 1878,"Zion Church","Rome, NY",2,"Rev. Mr. Clarke, rector","Gallaudet","",-75.4557303,43.2128473
 1878,"Unnamed Church","Saco, ME",1,"","Turner","",-70.4428286,43.5009176
-1878,"St. Peter's Church","Salem, MA",NA,"","William Bailey, assisting services","",-70.8967155,42.51954
+1878,"St. Peter's Church","Salem, MA",0,"","William Bailey, assisting services","",-70.8967155,42.51954
 1878,"St. Peter's Church","Salem, MA",1,"Rev. Dr. Arey, rector","Gallaudet","at least once",-70.8967155,42.51954
 1878,"Bethesda Church","Saratoga Springs, NY",1,"Rev. Dr. Carey, rector","Gallaudet","at least once",-73.7845651,43.0831301
 1878,"Unnamed Church","Savannah, GA",1,"","Turner","",-81.0998342,32.0835407
@@ -307,8 +307,8 @@
 1879,"Church of the Good Shepherd","Boston, MA",24,"","Lewis","twice a month",-71.0597732,42.3584308
 1879,"St. Paul's Church","Boston, MA",12,"Rev. Mr. Newton","Gallaudet (1), Turner (3), Bailey","monthly services",-71.0597732,42.3584308
 1879,"St. Paul's Church","Boston, MA",12,"","Gallaudet","",-71.0597732,42.3584308
-1879,"Christ Church","Bridgeport, CT",NA,"","Turner","",-73.1951767,41.1865478
-1879,"St. Paul's Church","Bridgeport, CT",NA,"","R.D. Beers","",-73.1951767,41.1865478
+1879,"Christ Church","Bridgeport, CT",0,"","Turner","",-73.1951767,41.1865478
+1879,"St. Paul's Church","Bridgeport, CT",0,"","R.D. Beers","",-73.1951767,41.1865478
 1879,"Christ Church","Brooklyn, NY",12,"Rev. Samuel Cooke","Gallaudet (1), Lewis","fourth sunday of the month",-73.9441579,40.6781784
 1879,"St. Ann's Church","Brooklyn, NY",12,"","Gallaudet (1), Lewis","second sunday of the month",-73.9441579,40.6781784
 1879,"St. Luke's Church","Brooklyn, NY",1,"Rev. Dr. Diller, rector","Gallaudet (1)","at least once",-73.9441579,40.6781784
@@ -325,16 +325,16 @@
 1879,"Grace Church","Cleveland, OH",1,"","Mann, R.P. McGregor","",-81.6943605,41.49932
 1879,"Trinity Church","Cleveland, OH",1,"Rev. Dr. Brown, rector","Gallaudet (1), Mann","special service",-81.6943605,41.49932
 1879,"Ohio Institute for deaf-mutes","Columbus, OH",3,"","Gallaudet, Mann","",-82.9987942,39.9611755
-1879,"Unnamed Church","Columbus, OH",NA,"","Mann ","(unclear how many)",-82.9987942,39.9611755
-1879,"St. Paul's Church","Concord, NH",NA,"","Turner","",-71.5375718,43.2081366
+1879,"Unnamed Church","Columbus, OH",0,"","Mann ","(unclear how many)",-82.9987942,39.9611755
+1879,"St. Paul's Church","Concord, NH",0,"","Turner","",-71.5375718,43.2081366
 1879,"Iowa Institution for the Deaf","Council Bluffs, IA",1,"","Gallaudet (1), Mann","special service",-95.8608333,41.2619444
 1879,"Grace Cathedral","Davenport, IA",1,"","Gallaudet (1), Mann","special service",-90.5776367,41.5236437
-1879,"Unnamed Church","Dayton, OH",NA,"","Mann","(unclear how many)",-84.1916069,39.7589478
-1879,"unnamed church, likely St. Peter's Church","Delaware, OH",NA,"","Mann","(unclear how many)",-83.067965,40.2986724
+1879,"Unnamed Church","Dayton, OH",0,"","Mann","(unclear how many)",-84.1916069,39.7589478
+1879,"unnamed church, likely St. Peter's Church","Delaware, OH",0,"","Mann","(unclear how many)",-83.067965,40.2986724
 1879,"St. Paul's Church","Des Moines, Iowa",1,"Rev. Mr. Jenckes","Gallaudet (1), Mann","special service",-93.6091064,41.6005448
-1879,"Unnamed Church","Detroit, MI",NA,"","Mann","(unclear how many)",-83.0457538,42.331427
+1879,"Unnamed Church","Detroit, MI",0,"","Mann","(unclear how many)",-83.0457538,42.331427
 1879,"St. Paul's Church","Staten Island ",1,"","Gallaudet (1)","",-74.1502007,40.5795317
-1879,"Christ Church","Fitchburg, MA",NA,"","Turner","",-71.8022955,42.5834228
+1879,"Christ Church","Fitchburg, MA",0,"","Turner","",-71.8022955,42.5834228
 1879,"Unnamed Church","Flint, MI",1,"","Mann (unclear how many)","at least once",-83.6874562,43.0125274
 1879,"Maryland Institution for Deaf-Mutes","Frederick, MD",1,"","Gallaudet (1)","",-77.4105409,39.4142688
 1879,"All Saints' Church","Frederick, MD",1,"Rev. Mr. Ingle, rector","Gallaudet (1), Turner","",-77.4105409,39.4142688
@@ -343,25 +343,25 @@
 1879,"St. Andrew's Church","Harlem, NY",12,"","Gallaudet (1), Chamberlain (2), Lewis","third sunday of the month",-73.9464769,40.8115504
 1879,"Trinity Church","Hartford, CT",2,"Rev. Mr. Johnson, rector","Gallaudet (1) Turner (1)","",-72.6850932,41.7637111
 1879,"Union Church","Hooksett, NH",1,"Rev. Mr. Kellogg, pastor","Gallaudet, Turner","",-71.4651283,43.0967213
-1879,"Grace Church","Hopkinsville, KY",NA,"","Turner","",-87.4886186,36.8656008
+1879,"Grace Church","Hopkinsville, KY",0,"","Turner","",-87.4886186,36.8656008
 1879,"Christ Church","Indianapolis, IN",1,"Rev. Mr. Bradley, rector","Gallaudet (1), Mann","special service",-86.158068,39.768403
 1879,"St. Andrew's Church","Jackson, MS",2,"Rev. Mr. Tucker, rector","Gallaudet(1), Turner (1)","at least twice",-90.1848103,32.2987573
-1879,"St. Andrew's Church","Jackson, MS",NA,"","Turner","",-90.1848103,32.2987573
+1879,"St. Andrew's Church","Jackson, MS",0,"","Turner","",-90.1848103,32.2987573
 1879,"St. Paul's Church","Jackson, MI",1,"","Mann (unclear how many)","community there meets weekly and reads sermon together",-84.4013462,42.245869
 1879,"Grace Church","Kansas City, KS",1,"Rev. Mr. Duncan, rector","Gallaudet (1), Mann","",-94.6274636,39.114053
 1879,"St. John's Church","Knoxville, TN",1,"Rev. Mr. Duncan, rector","Gallaudet(1), Turner","""most of the pupils were present"" - theme in the visitation of deaf schools, frequently students attended services held elsewhere when missionaries were in town.",-83.9207392,35.9606384
 1879,"Tennesee Insitution for Deaf-Mutes","Knoxville, TN",1,"","Gallaudet(1), Turner","",-83.9207392,35.9606384
 1879,"Grace Church","Lawrence, MA",1,"Rev. Mr. Lawrence, rector","Gallaudet (1)","",-71.1631137,42.7070354
-1879,"Christ Church","Little Rock, AR",NA,"","Turner","",-92.2895948,34.7464809
-1879,"St. Paul's Church","Louisville, KY",NA,"","Turner","",-85.7584557,38.2526647
+1879,"Christ Church","Little Rock, AR",0,"","Turner","",-92.2895948,34.7464809
+1879,"St. Paul's Church","Louisville, KY",0,"","Turner","",-85.7584557,38.2526647
 1879,"St. Anne's Church","Lowell, MA",2,"Rev. Dr. Edson, rector","Gallaudet (1), Turner (1)","",-71.3161718,42.6334247
-1879,"St. Paul's Church","Lynchburg, VA",NA,"","Turner","",-79.1422464,37.4137536
-1879,"Grace Church","Manchester, New Hampshire",NA,"","Turner","",-71.4547891,42.9956397
+1879,"St. Paul's Church","Lynchburg, VA",0,"","Turner","",-79.1422464,37.4137536
+1879,"Grace Church","Manchester, New Hampshire",0,"","Turner","",-71.4547891,42.9956397
 1879,"Unnamed Church","Marion, OH",1,"","Mann (unclear how many)","at least once",-83.1285242,40.5886699
 1879,"Trinity Church","Meadville, PA",1,"Rev. Mr. Carstensen, rector","Gallaudet (1), Mann","special service",-80.1514484,41.6414438
-1879,"Calvary Church","Memphis, TN",NA,"","Turner","",-90.0489801,35.1495343
-1879,"St. Mary's Cathedral","Memphis, TN",NA,"","Turner","",-90.0489801,35.1495343
-1879,"Trinity Church","Meriden, CT",NA,"","Turner","",-72.8070435,41.5381535
+1879,"Calvary Church","Memphis, TN",0,"","Turner","",-90.0489801,35.1495343
+1879,"St. Mary's Cathedral","Memphis, TN",0,"","Turner","",-90.0489801,35.1495343
+1879,"Trinity Church","Meriden, CT",0,"","Turner","",-72.8070435,41.5381535
 1879,"Grace Church","Mexico, NY",2,"","Gallaudet(1) Turner (1)","",-76.2288176,43.4595138
 1879,"Trinity Church","Michigan City, IN",2,"Rev. Mr. Wood, rector","Gallaudet (1), Mann (unclear how many)","at least twice",-86.8950297,41.7075394
 1879,"St. John's Church","Montgomery, AL",1,"Rev.Dr. Stringfellow","Gallaudet(1), Turner","at least once",-86.2999689,32.3668052
@@ -369,15 +369,15 @@
 1879,"Trinity Church","Mt. Vernon, NY",1,"Rev. S.F. Holmes","Gallaudet(1)","at least once",-73.8370786,40.9125992
 1879,"Unnamed Church","Muncie, IN",1,"","Mann (unclear how many)","at least once",-85.3863599,40.1933767
 1879,"Church of the Good Shepherd","Nashua, NH",1,"Rev. Mr. LeRoy","Gallaudet, Turner","",-71.467566,42.7653662
-1879,"Christ Church","Nashville, TN",NA,"","Turner","",-86.783333,36.166667
+1879,"Christ Church","Nashville, TN",0,"","Turner","",-86.783333,36.166667
 1879,"Christ Church","New Orleans, LA",1,"Rev. Dr. Kramer","Gallaudet(1), Turner","",-90.0715323,29.9510658
-1879,"St. Paul's Church","New Orleans, LA",NA,"","Turner","",-90.0715323,29.9510658
+1879,"St. Paul's Church","New Orleans, LA",0,"","Turner","",-90.0715323,29.9510658
 1879,"Church of the Intercession","New York City, NY",2,"Rev. Mr. Donald","Gallaudet","",-74.0059413,40.7127837
 1879,"New York Institution for Deaf-Mutes","New York City, NY",1,"","Gallaudet(1)","",-74.0059413,40.7127837
 1879,"St. Ann's Church","New York City, NY",52,"Rev. Thomas Gallaudet, rector","Gallaudet, Chamberlain, Lewis","every sunday",-74.0059413,40.7127837
 1879,"St. John's Church","Newark, NJ",24,"Rev. George C. Pennell, rector","Pennell","twice a month",-74.1723667,40.735657
 1879,"Trinity Mission Chapel","Newark, NJ",24,"","Gallaudet (1)","twice a month",-74.1723667,40.735657
-1879,"St. Paul's Church","Newburyport, MA",NA,"","Turner","",-70.8772751,42.8125913
+1879,"St. Paul's Church","Newburyport, MA",0,"","Turner","",-70.8772751,42.8125913
 1879,"unnamed church, likely Trinity Church","Niles, MI",1,"","Mann (unclear how many)","at least once",-86.2541768,41.8297694
 1879,"Christ Church","Norfolk, VA",1,"Rev. Dr. Barten, rector","Gallaudet(1), Turner","",-76.2858726,36.8507689
 1879,"Kansas Institution","Olathe, KA",1,"","Gallaudet (1), Mann","",-94.8191285,38.8813958
@@ -385,12 +385,12 @@
 1879,"Trinity Cathedral","Omaha, NE",1,"Rev. Mr. Osborn, rector","Gallaudet (1)","special service",-95.9979883,41.2523634
 1879,"St. Paul's Church","Peoria, IL",1,"Rev. Mr. Morrow","Gallaudet (1), Mann","special service",-89.5889864,40.6936488
 1879,"Grace Church","Petersburg, VA",1,"Rev. Dr. Gibson","Gallaudet(1), Turner","",-77.4019267,37.2279279
-1879,"Pennsylvania Institute for Deaf-Mutes","Philadelphia, PA",NA,"","Turner","",-75.163789,39.952335
+1879,"Pennsylvania Institute for Deaf-Mutes","Philadelphia, PA",0,"","Turner","",-75.163789,39.952335
 1879,"St. Stephen's Church","Philadelphia, PA",52,"","Rev. Henry W. Syle, Gallaudet (3), Chamberlain (3)","every sunday",-75.163789,39.952335
-1879,"St. Paul's Church","Philipsburg, PA",NA,"Rev. Francis J. Clerc","Clerc","",-78.2205688,40.8964465
+1879,"St. Paul's Church","Philipsburg, PA",0,"Rev. Francis J. Clerc","Clerc","",-78.2205688,40.8964465
 1879,"unnamed church, likely Trinity Church","Pittsburg, PA",1,"likely Rev. Dr. Hitchcock, rector","Mann (unclear how many)","at least once",-79.9958864,40.4406248
 1879,"unnamed church, likely Christ Church","Portsmouth, OH",1,"","Mann (unclear how many)","at least once",-82.9976742,38.7317431
-1879,"Trinity Church","Potsdam, NY",NA,"","Turner","",-74.9813084,44.6697805
+1879,"Trinity Church","Potsdam, NY",0,"","Turner","",-74.9813084,44.6697805
 1879,"Grace Church","Providence, RI",1,"","Chamberlain","",-71.4128343,41.8239891
 1879,"Christ Church","Raleigh, VA",1,"Rev. Mr. Marshall, rector","Gallaudet(1), Turner","",-81.2518833,37.7381597
 1879,"Church of the Good Shepherd","Raleigh, VA",1,"Rev. Mr. Rich, rector","Gallaudet(1), Turner","",-81.2518833,37.7381597
@@ -408,20 +408,20 @@
 1879,"unnamed church, likely Emmanuel Church","South Bend, IN",1,"","Mann (unclear how many)","at least once",-86.2519898,41.6763545
 1879,"Church of the Advent","Spartenburg, SC",1,"Rev. Mr. Jones, rector","Gallaudet(1), Turner","at least once",-81.9320482,34.9495672
 1879,"Trinity Church","Spring Hill, AL",1,"Rev. Dr. Massey, rector","Gallaudet(1), Turner","at least once",-86.78889,31.36306
-1879,"Christ Church","Springfield, MA",NA,"","Turner","",-72.589811,42.1014831
+1879,"Christ Church","Springfield, MA",0,"","Turner","",-72.589811,42.1014831
 1879,"Christ Church","St. Louis, MO",28,"Rev. Dr. Schuyler","Gallaudet (1), Mann, Delos A. Simpson, layreader biweekly service","",-90.1994042,38.6270025
 1879,"St. George Church","St. Louis, MO",1,"","Mann","special service",-90.1994042,38.6270025
 1879,"Trinity Church","Staunton, VA",2,"Rev. Mr. Hullihen","Gallaudet(1), Turner (1)","",-79.0716958,38.149576
 1879,"Virginia Institution for Deaf-Mutes and Blind","Staunton, VA",1,"","Gallaudet(1), Turner","",-79.0716958,38.149576
 1879,"St. James' Church","Syracuse, NY",1,"","Turner","at least once",-76.1474244,43.0481221
-1879,"Alabama Institution for Deaf-Mutes and Blind","Talladega, AL",NA,"","Gallaudet(1), Turner","at least once",-86.1058048,33.4359416
-1879,"Episcopal Chapel","Talladega, AL",NA,"Rev. Mr. Smith, pastor","Gallaudet(1), Turner","at least once",-86.1058048,33.4359416
+1879,"Alabama Institution for Deaf-Mutes and Blind","Talladega, AL",0,"","Gallaudet(1), Turner","at least once",-86.1058048,33.4359416
+1879,"Episcopal Chapel","Talladega, AL",0,"Rev. Mr. Smith, pastor","Gallaudet(1), Turner","at least once",-86.1058048,33.4359416
 1879,"Grace Church","Topeka, KS",1,"","Gallaudet (1), Mann","special service",-95.6890185,39.0558235
 1879,"St. James' Cathedral","Toronto, Canada",1,"","Turner","at least once",-79.3831843,43.653226
 1879,"St. Paul's Church","Troy, NY",52,"","Mrs. Gould Gallaudet (1)","every sunday",-73.6917851,42.7284117
 1879,"National Deaf Mute College","Washington, DC",1,"","Gallaudet","William Bailey, Boston, Salem, Beverly",-77.0368707,38.9071923
-1879,"Grace Church","Watertown, NY",NA,"","Turner","",-75.9107565,43.9747838
-1879,"St. John's Church","West Randolph, VT",NA,"","Turner","",-72.6656948,43.9247446
+1879,"Grace Church","Watertown, NY",0,"","Turner","",-75.9107565,43.9747838
+1879,"St. John's Church","West Randolph, VT",0,"","Turner","",-72.6656948,43.9247446
 1879,"Trinity Church","Wilimington, DE",2,"","Turner","",-75.5397878,39.7390721
 1879,"Christ Church","Williamsburgh, NY",12,"","Chamberlain, Lewis","monthly",-73.9570696,40.7081156
 1879,"St. John's Church","Wilmington, NC",1,"Rev. Mr. Patterson, rector","Gallaudet(1), Turner","",-77.9447102,34.2257255
@@ -429,7 +429,7 @@
 1879,"St. Mark's Church","Wilmington, NC",1,"Rev. Mr. Brady, pastor","Gallaudet(1), Turner","addressed ""colored congregation""",-77.9447102,34.2257255
 1879,"St. Paul's Church","Wilmington, NC",1,"Rev. Mr. Ambler, rector","Gallaudet(1), Turner","",-77.9447102,34.2257255
 1879,"St. James' Church","Woonsocket, RI",1,"","Turner","",-71.5147839,42.0028761
-1879,"All Saints' Church","Worcester, MA",NA,"","Turner","",-71.8022934,42.2625932
+1879,"All Saints' Church","Worcester, MA",0,"","Turner","",-71.8022934,42.2625932
 1879,"St. John's Church","York, PA",2,"","Turner","",-76.727745,39.9625984
-1879,"Unnamed Church","Delavan, WI",NA,"","Thomas B. Berry","",-88.6437138,42.6330703
-1879,"Unnamed Church","Milwaukee, WI",NA,"","Berry","",-87.9064736,43.0389025
+1879,"Unnamed Church","Delavan, WI",0,"","Thomas B. Berry","",-88.6437138,42.6330703
+1879,"Unnamed Church","Milwaukee, WI",0,"","Berry","",-87.9064736,43.0389025

@@ -42,16 +42,19 @@
 		fill-opacity: 0.5;
 		}
 
-/* this styles the slider */
-	#year-selector {
-		/*width: 500px;*/
-		margin-left: 50px;
-		display: inline-block;
-		}
-	#all-checkbox {
-		display: inline-block;
-		margin-left: 100px;
-	}
+/* this styles the tooltip */
+div.tooltip {
+ position: absolute;
+ text-align: center;
+ width: 150px;
+ height: 25px;
+ padding: 2px;
+ font-size: 10px;
+ background: #FFFFE0;
+ border: 1px;
+ border-radius: 8px;
+ pointer-events: none;
+}
 
 /* this styles the bodytext */
 	#bodytext { 

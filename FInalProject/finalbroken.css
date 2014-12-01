@@ -51,7 +51,7 @@
     	margin-top: 10px;
 
     }
-.d3-slider {
+/*.d3-slider {
 	position: relative;
     font-family: Verdana,Arial,sans-serif;
     font-size: 1.1em;
@@ -111,7 +111,7 @@
 
 .d3-slider-axis text {
     font-size: 11px;
-}
+}*/
 
 /* this styles the bodytext */
 	#bodytext { 

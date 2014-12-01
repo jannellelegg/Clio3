@@ -31,7 +31,7 @@ queue()
 .defer(d3.csv, "cleanCMDM.csv")
 .await(ready);
 
-function ready(error, state_1870, location) {
+function ready(error, state_1870, cleanCMDM) {
   console.log(state_1870);
   map_svg.selectAll(".states")
   .data(topojson.feature(state_1870, state_1870.objects.state_1870).features)
@@ -45,11 +45,9 @@ function ready(error, state_1870, location) {
   .attr("class", "border");
 
   map_svg.selectAll("circles.points")
-  .data(location)
+  .data(cleanCMDM)
   .enter()
   .append("circle")
-
-  // .attr("r", function(d) {return 2 * Math.sqrt(d.converts)}) Don't know what this part does:
   .attr("r", 3)
   .attr("class","mission")
   .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});}
@@ -63,7 +61,7 @@ function ready(error, state_1870, location) {
       $("#all-checkbox").attr("checked", false);
 
       map_svg.selectAll(".mission")
-      .data(location)
+      .data(cleanCMDM)
       .classed("hidden", true)
       .filter(function(d) {
         return +d.year === ui.value;
@@ -76,13 +74,13 @@ function ready(error, state_1870, location) {
     if ($("#all-checkbox").prop('checked')) {
       $("#current-year").text("1873-1879");
       map_svg.selectAll(".mission")
-      .data(location)
+      .data(cleanCMDM)
       .classed("hidden", false);
     } else {
       var current_year = $('#year-selector').slider("option", "value");
       $("#current-year").text(current_year);
       map_svg.selectAll(".mission")
-      .data(location)
+      .data(cleanCMDM)
       .classed("hidden", true)
       .filter(function(d) {
         return +d.year === current_year;
@@ -94,7 +92,7 @@ function ready(error, state_1870, location) {
 
   // Create the slider
 
-d3.slider = function module() {
+/*d3.slider = function module() {
   "use strict";
 
   // Public variables width default settings
@@ -320,3 +318,4 @@ d3.slider = function module() {
 
 
 
+*/
