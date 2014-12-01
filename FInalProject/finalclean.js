@@ -39,6 +39,7 @@ function ready(error, state_1870, cleanCMDM) {
   .data(cleanCMDM)
   .enter()
   .append("circle")
+  // defines size of the circle based on stated frequency in CSV:
   .attr("r", function(d) {
     if (d.frequency >= 50) {
       return (7);
@@ -50,6 +51,23 @@ function ready(error, state_1870, cleanCMDM) {
       return (3);
     }
   })
+  .on("mouseover", function(d) {   //Add tooltip on mouseover for each circle
+                d3.select("#tooltip")
+                  //Show the tooltip above where the mouse triggers the event
+                  .style("left", (d3.event.pageX) + "px")     
+                          .style("top", (d3.event.pageY - 90) + "px")
+                  .select("#mission-label")  
+                  .html("<strong>" + d.facility + "</strong>" + "<br/>" + "location: " + d.location + "<br/>" + "frequency: " + d.frequency + "<br/>" + "Church Clergy: " + d.churchClergy + "<br/>" + "CMDM Clergy: " + d.CMDMClergy + "<br/>" + "Notes: " + d.notes)      
+               
+                //Show the tooltip
+                d3.select("#tooltip").classed("hidden", false);
+               })
+               .on("mouseout", function() {
+               
+                //Hide the tooltip
+                d3.select("#tooltip").classed("hidden", true);
+                
+               })
   .attr("class","mission")
   .attr("transform", function(d) {return "translate(" + projection([d.lon,d.lat]) + ")";});}
 
