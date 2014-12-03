@@ -58,12 +58,10 @@ function ready(error, state_1870, cleanCMDM) {
                           .style("top", (d3.event.pageY - 90) + "px")
                   .select("#mission-label")  
                   .html("<strong>" + d.facility + "</strong>" + "<br/>" + "location: " + d.location + "<br/>" + "frequency: " + d.frequency + "<br/>" + "Church Clergy: " + d.churchClergy + "<br/>" + "CMDM Clergy: " + d.CMDMClergy + "<br/>" + "Notes: " + d.notes)      
-               
                 //Show the tooltip
                 d3.select("#tooltip").classed("hidden", false);
                })
-               .on("mouseout", function() {
-               
+  .on("mouseout", function() {
                 //Hide the tooltip
                 d3.select("#tooltip").classed("hidden", true);
                 

@@ -6,20 +6,21 @@ output: html_document
 ---
 
 ```{r}
+
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(rgdal)
 library(ggmap)
 
-rawData <- read.csv("Mission-Services2.csv", stringsAsFactors = FALSE)
-rawData
+rawData <- read.csv("/Users/JannelleLegg/Clio3/FInalProject/MissionServices.csv", stringsAsFactors = FALSE)
+#rawData
 
 cleanedData <- rawData %>%
   tbl_df() %>%
   select(year = Year,
          facility = Facility,
-         location = Location,
+         location = City,
          frequency = Services.Held,
          churchClergy = permanent.clergy,
          CMDMClergy = CMDM.clergy,
@@ -35,19 +36,51 @@ locations <- cleanedData %>%
   select(location)
 
 locations_geocoded <- geocode(locations$location)
-locations_geocoded
+#locations_geocoded
 
 locations <- cbind(locations, locations_geocoded)
 
 cleanedData <- cbind(cleanedData, locations_geocoded)
 
-cleanedData
+#cleanedData
 
 ```
 
 Now I have a chart that provides information on the year, location, frequency (sort of), and clergy for the Church Mission to Deaf-Mutes between 1873 and 1879.
 
 ```{r}
-write.csv(cleanedData, file="cleanCMDM.csv", row.names=FALSE)
+write.csv(cleanedData, file="cleanCMDM1.csv", row.names=FALSE)
+```
+
+Now to produce the same process on the school data:
+```{r}
+rawSchools <- read.csv("/Users/JannelleLegg/Clio3/FInalProject/Schools.csv", stringsAsFactors = FALSE)
+
+
+cleanedSchools <- rawSchools %>%
+  tbl_df() %>%
+  select(school = School,
+         location = Location,
+         founded = Year.Founded)
+
+```
+
+```{r}
+locationSchools <- cleanedSchools %>%
+  tbl_df() %>%
+  select(location)
+
+locationSchools_geocoded <- geocode(locationSchools$location)
+#locationSchools_geocoded
+
+locationSchools <- cbind(locationSchools, locationSchools_geocoded)
+
+cleanedSchools <- cbind(cleanedSchools, locationSchools_geocoded)
+
+#cleanedSchools
+```
+
+```{r}
+write.csv(cleanedSchools, file="cleanSchools.csv", row.names=FALSE)
 ```
 

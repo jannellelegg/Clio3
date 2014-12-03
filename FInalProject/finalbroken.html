@@ -23,44 +23,51 @@
 
 <div id="wrapper" class="container_12">
 
-  <div id="header" class="grid_12">
+<!-- this is the header  -->
+  
+  <div id= "headerimage" class="grid_2"><img src="images/ChurchMission.png" width="150" height="213" alt="Symbol of the Church Mission to Deaf-Mutes"/></div>
+
+  <div id="header" class="grid_10">
     <h2>The Church Mission to Deaf-Mutes, 1873-1879</h2>
   </div>
+ 
 
 
-<!-- this is the map visualiztion -->
+<!-- this is the map visualization -->
 
-  <div class="grid_9" id="map"> </div>
+<div id="tooltip" class="hidden">
+      <h4><span id="mission-label"></span></h4></div>
+
+  <div class="grid_9" id="map" align="center"> </div>
 
 
 <!-- this is the structure for the slider -->
 
-<!--   <div class="grid_12">
-    <div id="year-indicator">
-      <input type="checkbox" id="all-checkbox" checked="true" />
-      <label for="all-checkbox"><p>Display all years</p></label>
-      <div id="year-selector"></div>
-      <label id="year-label"><p>Years displayed:</p> <span 
-          id="current-year"><p>1873-1879</p></span></label>
-    </div>
-  </div> -->
 
-<!-- <div class="grid_2"> </div>
+
   <div class="grid_9" id="slider">
-<p>Year: <span id="slider3text">1873</span></p>
-    <div id="slider3"></div></div> -->
+    <h3>Year: <span id="slider3text">1873</span></h3> 
+    <div id="slider3"></div>
+    </div>
 
 
-<div class="bodytext" id="grid_11">
 
-    <hr width="800" align="center" size="2"/>
+<!-- this is the body text -->
+
+<div class="grid_10" id="bodytext">
+
 
     <p>In 1872, the Church Mission to Deaf-Mutes, an Episcopal organization, was founded to expand “ministry to the deaf of other cities.”<sup><a href="#fn1text" class="note">1</a></sup> <a name="fn1ref" id="fn1ref"></a> The mission society grew out of the ministerial efforts of Rev. Thomas Gallaudet at St. Ann’s Church for Deaf-Mutes in New York City and as the organization grew, the missionary efforts were expanded to include deaf populations further afield and created leadership opportunities for deaf clergymen. As members of the Mission, these missionaries aimed to “...to increase the number of religious services for the deaf and dumb throughout the country; to relieve deaf- mutes who are in sickness or trouble; to find work for those who are out of employment, and especially to provide a home for the aged and infirm.”<sup><a href="#fn2text" class="note">2</a></sup> <a name="fn2ref" id="fn2ref"></a> The activities of the Mission led to the founding of the Conference on Church Work Among the Deaf, an organization that was active in the United States as recently as 1996.</p>
 
     <p>Even more descriptive text.</p>
+
 </div>
 
+<!-- this is the footnotes  -->
+
 <div id= "footnotes" class="grid_11">
+
+  <hr width="800" align="center" size="2"/>
 
     <p><sup><a href= "#fn1ref" class="note">1. </a><a name="fn1text" id="fn1text"></a>Unknown, “The Church Mission to Deaf-Mutes,” undated, c 1910, 1, Box #45, Archives of the Episcopal Diocese of New York.</sup></p>
 
@@ -70,11 +77,6 @@
 </div>
 </div>
 <script src="finalbroken.js"></script>
-  <script>
-    d3.select('#slider3').call(d3.slider().on("slide", function(evt, value) {
-      d3.select('#slider3text').text(value);
-    }));
-  </script>
 
 </body>
 </html>
